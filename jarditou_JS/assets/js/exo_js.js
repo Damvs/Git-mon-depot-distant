@@ -1,3 +1,4 @@
+/*
 var nom;
 var prenom;
 var sexe;
@@ -16,3 +17,18 @@ else
 }
 
 window.alert("Bonjour "+ sexe +" "+ nom +" "+ prenom +" "+ "\n" +"Bienvenue sur notre site web");
+*/
+
+var a="100";
+var b=100;
+var c=1.00;
+var d=true;
+
+
+window.alert("Ceci est une chaîne de caractères : " + a)
+b=b--
+window.alert(b)
+c=c+parseInt(a)
+window.alert(c)
+d=isNaN(d)
+window.alert(d)
