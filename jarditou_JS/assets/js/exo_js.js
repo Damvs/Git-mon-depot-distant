@@ -1,3 +1,4 @@
+//AFFICHER DU TEXTE EXO 1
 /*
 var nom;
 var prenom;
@@ -19,6 +20,8 @@ else
 window.alert("Bonjour "+ sexe +" "+ nom +" "+ prenom +" "+ "\n" +"Bienvenue sur notre site web");
 */
 
+
+//OPERATEUR EXO 1
 /*
 var a="100";
 var b=100;
@@ -35,6 +38,8 @@ d=isNaN(d);
 window.alert(d);
 */
 
+
+//CONDITIONS Exo 1
 /*
 var nbr = window.prompt("Entrez un nombre"), nombre;
 
@@ -48,6 +53,8 @@ else
 }
 */
 
+
+//CONDITIONS Exo 2
 /*var an = 2020
 var age = an -(window.prompt("Entrer votre année de naissance"))
 
@@ -63,6 +70,8 @@ else if (age<18)
 }
 */
 
+
+//CONDITIONS Exo 3
 /*var n1 = parseInt(window.prompt("Entrer votre premier nombre"));
 var op = window.prompt("Entrer le signe de votre opération parmis les suivants : + - * /");
 var n2 = parseInt(window.prompt("Entrer votre second nombre"));
@@ -102,4 +111,93 @@ switch(op)
         window.alert("Le signe de l'opération est erroné");
 }
 */
+
+
+//BOUCLES Exo 1
+/*
+var i=1;
+var prenom;
+do
+{
+    
+    prenom = window.prompt("Saisissez le prénom N°"+i+"\n"+"ou Clic sur Annuler pour arrêter la saisie.");
+    
+    console.log("Prénom N°"+i+"      "+prenom);
+    
+    i++;
+}while (prenom!=null && prenom.length!=0);
+*/
+
+//BOUCLES Exo 2
+/*var N = parseInt(window.prompt("Entrer un nombre"));
+
+for (i=0; i < N; i++) {
+      console.log(i);
+    
+}
+*/
+
+//BOUCLES Exo 3
+/*
+var N;
+var som = 0;
+var i=0;
+
+do {
+    N= parseInt(window.prompt("Entrer un Nombre, Entrer 0 pour Terminer"));
+    som=som+N;
+    if (N==0) 
+    {
+     break;   
+    }
+    i++;
+
+} while (N!=0);
+
+console.log("La somme est : " + som);
+console.log("La moyenne est : " + som/i);
+*/
+
+
+//BOUCLES Exo 4
+/*
+var X = parseInt(window.prompt("Entrer le nombre à multiplier"));
+var N = parseInt(window.prompt("Entrer le nombre de multiple désiré"));
+var i = 1;
+
+while (i<=N) 
+{
+    console.log(i + " x " + X + " = " + i*X);
+    i++; 
+}
+*/
+
+//BOUCLES Exo 5
+
+var voyelle = ["a", "e", "i", "o", "u", "y", "A", "E","I","O","U","Y"];
+var mot = window.prompt("Entrer un mot");
+var NbrV=0;
+var lettre;
+var i;
+var voy= "";
+var consonne;
+
+
+for(i=0; i<mot.length; i++) 
+{
+    lettre = mot.substr(i,1);
+
+    if (voyelle.indexOf(lettre)>=0)
+    {
+        //voy += mot[i] +',';
+        NbrV++;
+    }
+   
+//consonne = mot.length - NbrV;    
+}
+
+console.log("Le nombre de voyelle est : "+NbrV);
+console.log("Le nombre de consonne est : "+consonne)
+//console.log(voy)
+
 
