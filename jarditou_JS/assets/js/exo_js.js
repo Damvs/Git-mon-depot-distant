@@ -204,7 +204,7 @@ console.log("Le nombre de consonne est : "+consonne)
 
 var x;
 var y;
-var image;
+var img;
 
 function produit(x,y)
 {
@@ -215,11 +215,13 @@ function produit(x,y)
     document.write("Le produit de "+x+" x "+y+" est égal à "+result+" Le cube de "+x+" est égal à " + cube);
 }
 
-function affichageImg(image) 
+function affichageImg(img) 
 {
-    var image = document.getElementsByName("src\img\papillon.jpg");
-    return image
+    var img = document.createElement('img');
+    img.src = "papillon.jpg"+img;
+    document.getElementById('img');
+    return img
 }
 
-affichageImg(image)
+affichageImg(img)
 produit(x,y)
