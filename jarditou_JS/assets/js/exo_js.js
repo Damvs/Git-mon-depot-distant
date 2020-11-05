@@ -60,13 +60,13 @@ var age = an -(window.prompt("Entrer votre année de naissance"))
 
 if (age>150)
 {
-   window.alert("Année de naissance invalide")
+    window.alert("Année de naissance invalide")
 }
 else if (age<18) 
 {
     window.alert(age + " Vous êtes mineur")
 } else {
-   window.alert(age + " Vous êtes majeur") 
+    window.alert(age + " Vous êtes majeur") 
 }
 */
 
@@ -132,8 +132,7 @@ do
 /*var N = parseInt(window.prompt("Entrer un nombre"));
 
 for (i=0; i < N; i++) {
-      console.log(i);
-    
+    console.log(i);
 }
 */
 
@@ -148,7 +147,7 @@ do {
     som=som+N;
     if (N==0) 
     {
-     break;   
+        break;   
     }
     i++;
 
@@ -174,7 +173,7 @@ while (i<=N)
 
 //BOUCLES Exo 5
 
-var voyelle = ["a", "e", "i", "o", "u", "y", "A", "E","I","O","U","Y"];
+/*var voyelle = ["a", "e", "i", "o", "u", "y", "A", "E","I","O","U","Y"];
 var mot = window.prompt("Entrer un mot");
 var NbrV=0;
 var lettre;
@@ -192,12 +191,35 @@ for(i=0; i<mot.length; i++)
         //voy += mot[i] +',';
         NbrV++;
     }
-   
+
 //consonne = mot.length - NbrV;    
 }
 
 console.log("Le nombre de voyelle est : "+NbrV);
 console.log("Le nombre de consonne est : "+consonne)
 //console.log(voy)
+*/
 
+//FONCTION Exo 1
 
+var x;
+var y;
+var image;
+
+function produit(x,y)
+{
+    x= window.prompt("Entrer un nombre");
+    y= window.prompt("Entrer un multiplicateur");
+    result=x*y;
+    cube=x*x*x
+    document.write("Le produit de "+x+" x "+y+" est égal à "+result+" Le cube de "+x+" est égal à " + cube);
+}
+
+function affichageImg(image) 
+{
+    var image = document.getElementsByName("src\img\papillon.jpg");
+    return image
+}
+
+affichageImg(image)
+produit(x,y)
