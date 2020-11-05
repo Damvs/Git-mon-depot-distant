@@ -201,10 +201,15 @@ console.log("Le nombre de consonne est : "+consonne)
 */
 
 //FONCTION Exo 1
-
+/*
 var x;
 var y;
 var img;
+
+function affichageImg(img) 
+{
+    document.write('<img src="' + img + ' ">');
+}
 
 function produit(x,y)
 {
@@ -212,16 +217,18 @@ function produit(x,y)
     y= window.prompt("Entrer un multiplicateur");
     result=x*y;
     cube=x*x*x
-    document.write("Le produit de "+x+" x "+y+" est égal à "+result+" Le cube de "+x+" est égal à " + cube);
+    affichageImg("src/img/papillon.jpg") ;
+    document.write("<br>Le produit de "+x+" x "+y+" est égal à "+result+" <br>Le cube de "+x+" est égal à " + cube);
 }
 
-function affichageImg(img) 
+/*function affichageImg(img) 
 {
-    var img = document.createElement('img');
-    img.src = "papillon.jpg"+img;
-    document.getElementById('img');
+    var img = document.createElement("img");
+    img.src ="src/img/papillon.jpg";
+    document.getElementById("img").appendChild(img);
     return img
 }
 
-affichageImg(img)
 produit(x,y)
+*/
+
