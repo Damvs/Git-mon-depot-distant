@@ -208,6 +208,7 @@ var img;
 
 function affichageImg(img) 
 {
+    //On inclut une balise img html avec src ""
     document.write('<img src="' + img + ' ">');
 }
 
@@ -232,3 +233,16 @@ function produit(x,y)
 produit(x,y)
 */
 
+//FONCTIONS Exo 2
+var str1;
+var str2;
+var n;
+
+function strtok(str1,str2,n) {
+    str1=window.prompt("Entrer une phrase");
+    n=parseInt(window.prompt("Entrer un nombre"));
+    str2=str1.split(["  "]);
+    document.write(str1.substr(str2,n));
+}
+
+strtok(str1,str2,n)
