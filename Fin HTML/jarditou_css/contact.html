@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<!--Début balise HEAD-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="Jarditou" content="width=device-width, initial-scale=1.0">
+    <title>Jarditou - Conctact</title>
+    
+</head>
+<!--Fin balise HEAD-->
+
+<!--Début balise BODY-->
+<body>
+  <!--Haut de page-->
+  <header>
+
+    <img src="src/img/jarditou_logo.jpg" width="300" alt="Logo Jarditou">
+  
+    <p>La qualité depuis 70 ans</p>
+  
+    <!--Menu-->
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="tableau.html">Tableau</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <img src="src/img/promotion.jpg" width="1250" alt="Promotion Jarditou">
+  </header>
+
+  <section>
+
+    <h1><strong>Contact</strong></h1>
+    <hr>
+    <p>* Ces zones sont obligatoires</p>
+
+    <form action="destination.php" method="post" id="formulaire_contact">
+      <fieldset>
+        <legend>Vos coordonnées</legend>
+        <label for="nom">Votre nom* : </label><input type="text" placeholder="Entrez votre nom" name="nom" id="nom"><br>
+        <label for="prénom">Votre prénom* : </label><input type="text" placeholder="Entrez votre prénom" name="prénom" id="prénom"><br>
+        <label for="sexe">Sexe* : </label><input type="radio" name="sexe" value="Féminin" id="sexe"> Féminin
+        <input type="radio" name="sexe" value="Masculin"> Masculin <br>
+        <label for="date">Date de naissance* : </label><input type="date" name="ddn" id="date"> <br>
+        <label for="codepostal">Code postal* : </label><input type="text" name="codepostal" id="codepostal" maxlength="5"><br>
+        <label for="adresse">Adresse : </label><input type="text" name="adresse" id="adresse"><br>
+        <label for="ville">Ville : </label><input type="text" name="ville" id="ville"><br>
+        <label for="email">Email* : </label><input type="email" placeholder="dave.loper@afpa.fr" name="email" id="email"><br>
+      </fieldset> <br>
+      <fieldset>
+        <legend>Votre demande</legend>
+        <label for="sujet">Sujet* : </label> <select name="sujet" id="sujet">
+          <option>Veuillez sélectionner un sujet</option>
+        </select> <br>
+        <label for="question">Votre question* : </label><textarea name="question" id="question" cols="30" rows="3"></textarea>
+      </fieldset> <br>
+      <input type="checkbox" name="consentement" id="consentement"> * J'accepte le traitement informatique de ce formulaire <br> <br>
+      <input type="submit" value="Envoyer">
+      <input type="reset" value="Annuler">
+    </form>
+  <hr>
+</section>
+
+<!--Bas de Page-->
+<footer>
+  <nav>
+    <ul>
+      <li><a href="">Mention légales</a></li>
+      <li><a href="">Horaires</a></li>
+      <li><a href="">Plan du site</a></li>
+    </ul>
+  </nav>
+</footer>
+
+</body>
+<!--Fin balise BODY-->
+
+<!--Fin de Page-->
+</html>

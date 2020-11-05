@@ -1,0 +1,46 @@
+header img:first-child{/*Décalage de l'image Jarditou du bord gauche de la page*/
+    margin-left: 15pt;
+}
+
+header p{/*Placement du texte "Tout le jardin"*/
+    font-size: 25pt;
+    display: flex;
+    justify-content: center;
+    margin-left: 20%;
+    margin-top: -5%;
+    position: relative;
+    top:10pt;
+}
+
+nav{/*Cadre noir de navigation*/
+    background-color: black;
+    height: 60pt;
+    margin-bottom: 5pt;
+}
+
+nav li{/*Liste sur la même ligne et sans puces*/
+    display: inline;
+    list-style: none; /* Retire les puces sur IE7*/
+}
+
+nav a{/*Placement et couleur des liens de navigation*/
+    font-size: 14pt;
+    color:white;
+    position: relative;
+    top: 22.5pt;
+    left: 22.5pt;
+    padding: 2pt;   
+}
+
+div{
+    background-color:rgb(201, 201, 201);
+    float: right;
+    height: 496px;
+    width: 385px;
+    margin-top: 5pt;
+}
+
+section{
+    margin-bottom: 50pt;
+}
+
