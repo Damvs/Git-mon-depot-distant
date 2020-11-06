@@ -200,7 +200,7 @@ console.log("Le nombre de consonne est : "+consonne)
 //console.log(voy)
 */
 
-//FONCTION Exo 1
+//FONCTION Exo 1 Produit/Image
 /*
 var x;
 var y;
@@ -233,16 +233,22 @@ function produit(x,y)
 produit(x,y)
 */
 
-//FONCTIONS Exo 2
-var str1;
+//FONCTIONS Exo 2 String Token
+/*
+const str1=window.prompt("Entrer une phrase");
 var str2;
-var n;
+var n=parseInt(window.prompt("Entrer un nombre"));
 
 function strtok(str1,str2,n) {
-    str1=window.prompt("Entrer une phrase");
-    n=parseInt(window.prompt("Entrer un nombre"));
-    str2=str1.split(["  "]);
-    document.write(str1.substr(str2,n));
+    while (n<=0) 
+    {
+        n=parseInt(window.prompt("Entrer un nombre"));
+    }
+    str2=" ";
+    const mot=str1.split(str2);
+    document.write(mot[n-1]);
 }
 
-strtok(str1,str2,n)
+strtok(str1,str2,n);
+*/
+
