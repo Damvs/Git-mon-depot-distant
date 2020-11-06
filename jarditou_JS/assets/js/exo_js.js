@@ -240,15 +240,37 @@ var str2;
 var n=parseInt(window.prompt("Entrer un nombre"));
 
 function strtok(str1,str2,n) {
+    //Controle pour empecher de rechercher l'indice -1 du tableau
     while (n<=0) 
     {
         n=parseInt(window.prompt("Entrer un nombre"));
     }
     str2=" ";
+    //Recherche des groupes de caractères séparés par un espace (str2) pour constituer un mot
     const mot=str1.split(str2);
+    //Affichage du mot à l'indice n-1 car Tableaux débute à indice[0]
     document.write(mot[n-1]);
 }
 
 strtok(str1,str2,n);
+*/
+
+//TABLEAUX Exo 1
+/*
+function CreateTabl() {
+    
+    var n= parseInt(window.prompt("Entrer un nombre"));
+    var tableau= new Array(n);
+    var i;
+
+    for (i = 0; i < n; i++) 
+    {
+        tableau[i]=(window.prompt("Entrer un mot"));
+    }
+
+    console.log(tableau)
+}
+
+CreateTabl()
 */
 
