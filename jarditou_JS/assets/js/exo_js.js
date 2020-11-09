@@ -370,12 +370,13 @@ main()
 
 //TABLEAUX Exo 3
 
+/*
 var n;
 var iTableau;
 var tableau;
 var i;
-var value;
-var permutation;
+//var value;
+//var permutation;
 
 
 
@@ -400,14 +401,16 @@ function SaisieTab(iTableau,n) {
 }
 
 function Triabulle(iTableau,n) {
-    var permutation;
-    var value = iTableau[i]
+    var permutation=true;
+    var value;
     while (permutation==true) {
-        for (i = 0; i < n-1; i++) {
+        permutation=false
+        for (var i = 0; i < iTableau.length; i++) {
             if (iTableau[i]>iTableau[i+1]) 
             {
+                value = iTableau[i];
                 iTableau[i]=iTableau[i+1];
-                iTableau[i+1]= value
+                iTableau[i+1]= value;
                 permutation=true;
             }
         }   
@@ -421,3 +424,5 @@ SaisieTab(iTableau,n);
 Triabulle(iTableau,n);
 
 document.write(iTableau);
+*/
+
