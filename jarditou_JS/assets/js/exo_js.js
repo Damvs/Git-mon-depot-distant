@@ -304,7 +304,7 @@ function SaisieTab(iTableau,n) {
     {
         saisieTableau=parseInt(window.prompt("Entrer le contenu de votre tableau"));
         tableau=iTableau.push(saisieTableau);
-        console.log(tableau)
+        console.log(tableau);
     }
 }
 
@@ -317,7 +317,7 @@ function AfficheTab() {
 function RechercheTab() {
     rang= parseInt(window.prompt("Entrer un nombre correspondant à l'index du tableau"));
     searchTab= iTableau[rang]
-    window.alert(searchTab)
+    window.alert(searchTab);
 }
 
 function InfoTab() {
@@ -331,14 +331,14 @@ function InfoTab() {
     }
     // Somme des valeurs/nombre de valeurs pour calculer la moyenne
     var moyenne= first/iTableau.length;
-    window.alert("La valeur maximum est "+max+" et la moyenne est "+moyenne)
+    window.alert("La valeur maximum est "+max+" et la moyenne est "+moyenne);
 }
 
 //Fonction executrice
 function main() {
-    GetInteger()
-    InitTab(n)
-    SaisieTab(iTableau,n)
+    GetInteger();
+    InitTab(n);
+    SaisieTab(iTableau,n);
 
     //Menu à choix pour lancer les fonctions liées au tableau
     menu = parseInt(window.prompt("Entre un nombre pour faire votre choix: 1-Affichage du tableau <br> 2-Recherche dans le tableau <br> 3- Information à propos du tableau"));
@@ -367,3 +367,57 @@ function main() {
 //Execution du programme
 main()
 */
+
+//TABLEAUX Exo 3
+
+var n;
+var iTableau;
+var tableau;
+var i;
+var value;
+var permutation;
+
+
+
+function GetInteger() {
+    n=parseInt(window.prompt("Entrer le nombre d'entrées souhaitées dans ce tableau"));
+}
+
+//Créer un tableau du nombre de postes souhaités à la saisie plus haut
+function InitTab(n) {
+    iTableau= new Array(n);
+    iTableau.splice(0,n);
+    console.log(iTableau);
+}
+
+function SaisieTab(iTableau,n) {
+    for (var i = 0; i < n; i++)
+    {
+        saisieTableau=parseInt(window.prompt("Entrer le contenu de votre tableau"));
+        tableau=iTableau.push(saisieTableau);
+        console.log(tableau);
+    }
+}
+
+function Triabulle(iTableau,n) {
+    var permutation;
+    var value = iTableau[i]
+    while (permutation==true) {
+        for (i = 0; i < n-1; i++) {
+            if (iTableau[i]>iTableau[i+1]) 
+            {
+                iTableau[i]=iTableau[i+1];
+                iTableau[i+1]= value
+                permutation=true;
+            }
+        }   
+    }
+    console.log(iTableau);
+}
+
+GetInteger();
+InitTab(n);
+SaisieTab(iTableau,n);
+Triabulle(iTableau,n);
+
+document.write(iTableau);
