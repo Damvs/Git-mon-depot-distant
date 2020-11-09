@@ -274,3 +274,96 @@ function CreateTabl() {
 CreateTabl()
 */
 
+//TABLEAUX Exo 2
+/*
+//Declaration des variables
+var n;
+var nbrTab;
+var tableau;
+var saisieTableau="";
+var iTableau;
+var rang;
+var searchTab;
+var menu;
+
+
+//Lire un entier au clavier pour saisir nombre postes
+function GetInteger() {
+    n=parseInt(window.prompt("Entrer le nombre d'entrées souhaitées dans ce tableau"));
+}
+
+//Créer un tableau du nombre de postes souhaités à la saisie plus haut
+function InitTab(n) {
+    iTableau= new Array(n);
+    iTableau.splice(0,n);
+}
+
+//Intégration de la saisie dans tableau initié
+function SaisieTab(iTableau,n) {
+    for (var i = 0; i < n; i++)
+    {
+        saisieTableau=parseInt(window.prompt("Entrer le contenu de votre tableau"));
+        tableau=iTableau.push(saisieTableau);
+        console.log(tableau)
+    }
+}
+
+//Affichage du tableau
+function AfficheTab() {
+    window.alert(iTableau);
+}
+
+//Recherche d'un poste par son rang
+function RechercheTab() {
+    rang= parseInt(window.prompt("Entrer un nombre correspondant à l'index du tableau"));
+    searchTab= iTableau[rang]
+    window.alert(searchTab)
+}
+
+function InfoTab() {
+    //Declarer le début du tableau
+    var first=0;
+    //Declarer la valeur maximum du tableau
+    var max= Math.max(...iTableau);
+    //Somme des valeurs du tableau
+    for (var i = 0; i < iTableau.length; i++) {
+        first += parseInt(iTableau[i]);
+    }
+    // Somme des valeurs/nombre de valeurs pour calculer la moyenne
+    var moyenne= first/iTableau.length;
+    window.alert("La valeur maximum est "+max+" et la moyenne est "+moyenne)
+}
+
+//Fonction executrice
+function main() {
+    GetInteger()
+    InitTab(n)
+    SaisieTab(iTableau,n)
+
+    //Menu à choix pour lancer les fonctions liées au tableau
+    menu = parseInt(window.prompt("Entre un nombre pour faire votre choix: 1-Affichage du tableau <br> 2-Recherche dans le tableau <br> 3- Information à propos du tableau"));
+    while (menu>=0) {
+        if (menu==1) {
+            AfficheTab(tableau);
+            menu = parseInt(window.prompt("Entre un nombre pour faire votre choix: 1-Affichage du tableau <br> 2-Recherche dans le tableau <br> 3- Information à propos du tableau"));
+        } 
+        else if (menu==2) 
+        {
+        RechercheTab(tableau);
+        menu = parseInt(window.prompt("Entre un nombre pour faire votre choix: 1-Affichage du tableau <br> 2-Recherche dans le tableau <br> 3- Information à propos du tableau"));
+        }
+        else if (menu==3)
+        {
+            InfoTab();
+            menu = parseInt(window.prompt("Entre un nombre pour faire votre choix: 1-Affichage du tableau <br> 2-Recherche dans le tableau <br> 3- Information à propos du tableau"));
+        }
+        else
+        {
+            menu = parseInt(window.prompt("Entre un nombre pour faire votre choix: 1-Affichage du tableau <br> 2-Recherche dans le tableau <br> 3- Information à propos du tableau"));
+        }
+    } 
+}
+
+//Execution du programme
+main()
+*/
