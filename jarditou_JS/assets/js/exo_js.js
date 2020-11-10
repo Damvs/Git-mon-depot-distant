@@ -426,3 +426,30 @@ Triabulle(iTableau,n);
 document.write(iTableau);
 */
 
+
+//OBJETS NATIFS JS Exo 1
+/*
+var N;
+var som = 0;
+var i=0;
+var tab= new Array;
+
+do {
+    N= parseInt(window.prompt("Entrer un Nombre, Entrer 0 pour Terminer"));
+    
+    som=som+N;
+    if (N==0) 
+    {
+        break;   
+    }
+    tab.push(N)
+    i++;
+
+} while (N!=0);
+
+console.log("Le Nombre de valeur dans le tableau est de : "+tab.length)
+console.log("La somme est : " + som);
+console.log("La moyenne est : " + som/i);
+console.log("Le contenu du tableau est : "+tab)
+*/
+
