@@ -453,3 +453,62 @@ console.log("La moyenne est : " + som/i);
 console.log("Le contenu du tableau est : "+tab)
 */
 
+
+//EVENEMENT EXO 1
+//Essai bootstrap réussi
+
+
+/*document.querySelector("#btn").onclick = function controle() 
+{
+    alert("Votre saisie est : "+ document.getElementById('textbtn').value);
+}
+*/
+
+//Html classique réussi
+/*
+function controle() 
+{
+    var saisie = document.forms["formulaire"].elements["name"].value;
+    alert("Vous avez saisie : " + saisie );
+}
+*/
+
+
+//EVENEMENT Exo 2 Nombre Magique
+/*
+//Initialisation de la variable random qui est le nombre aléatoire à trouver
+var random= parseInt(Math.floor(Math.random() * Math.floor(100)));  
+console.log(random);
+
+//Fonction pour vérifier la réponse et renvoyer un indication dans la balise label1
+function verif() 
+{
+    //récupération de la donnée saisie par l'utilisateur dans la boîte de texte qui devient la variable n
+    var n=document.getElementById("textBox1").value
+    //Comparaison si n est inférieur au nombre à trouver et s'il est supérieur à 0 
+    if (n<random && n>=0) 
+    {
+        //indication dans label1 que n est trop petit
+        document.getElementById('label1').innerHTML = "Trop petit";    
+    }
+    //Comparaison si n est supérieur au nombre à trouver et s'il est inférieur à 101
+    else if (n>random && n<101)
+    {
+        //indication dans label1 que n est trop grand
+        document.getElementById('label1').innerHTML = "Trop grand";
+    }
+    //Comparaison de n avec random qui est le nombre à trouver
+    else if (n==random)
+    {
+        //Affichage de la victoire et du nombre random qui était à trouver
+        document.getElementById('label1').innerHTML = "Vous avez gagné, le nombre était : " + random               
+    }
+    else
+    {
+        //indication que n n'est pas un nombre, ou est en dessous de 0 ou au dessus de 100, et autres données non prévues.
+        document.getElementById('label1').innerHTML = "Non valide"
+    }
+    
+}
+*/
+
