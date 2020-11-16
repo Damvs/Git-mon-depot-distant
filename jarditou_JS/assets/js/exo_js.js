@@ -512,13 +512,14 @@ function verif()
 }
 */
 
-function verif() 
+//Exo Formulaire JS16 Non réussi
+/*function verif() 
 {
     if (verifSociete==true && verifPersonne==true && verifCodepostal==true && verifMail==true && verifVille==true) //verif all control
     {
-        return console.log("verif ok")
+        return console.log("verif ok");
     }else{
-        return console.log("verif NON")
+        return console.log("verif NON");
     }
     
         //verification si societe a bien au moins 1 caractère
@@ -569,7 +570,7 @@ function verif()
             }
         }
         
-        /*//verification si mail a bien un @
+        //verification si mail a bien un @
         function verifMail() {
             if (document.getElementById("mail").value.indexOf("@"))
             {
@@ -578,18 +579,88 @@ function verif()
             } else {
                 return true;
             }
-        }  */
+        }
 
 }
 
 //Insére le mot choisit dans la liste dans la zone de texte
-function select() 
+document.getElementById("environnement").addEventListener("change", function select() 
 {
-    
-    if (document.getElementById("environnement".value!=0)) 
-    {
-        document.getElementById("textenvironnement").value=document.getElementById("environnement").value;
-    }
-
+    console.log("ok");
+    document.getElementById("textenvironnement").value=document.getElementById("environnement").value;
+    document.getElementById("environnement").options[0].style.display = "none";
 }
+)
+*/
+
+//EXO JS 16 Formulaire réussi avec 2 Regex
+/*
+var formValid = document.getElementById('btnEnvoi');
+var societe = document.getElementById('societe');
+var missSociete = document.getElementById('missSociete');
+var personne= document.getElementById('personne');
+var missPersonne= document.getElementById('missPersonne');
+var codepostal= document.getElementById('codepostal');
+var missCodepostal= document.getElementById('missCodepostal');
+var ville = document.getElementById('ville');
+var missVille= document.getElementById('missVille');
+var mail= document.getElementById('mail');
+var missMail= document.getElementById('missMail');
+var mailValid= /@/;
+var codepostalValid= /[0-9]{5}/
+
+formValid.addEventListener('click', validation);
+
+function validation(event){
+    //Societe
+    if (societe.validity.valueMissing){
+        event.preventDefault();
+        missSociete.textContent = 'Société manquante';
+        missSociete.style.color = 'red';
+    }
+    //Personne à contacter
+    if (personne.validity.valueMissing){
+        event.preventDefault();
+        missPersonne.textContent = 'Personne à contacter manquante';
+        missPersonne.style.color = 'red';
+    }
+    //CodePostal
+    if (codepostal.validity.valueMissing){
+        event.preventDefault();
+        missCodepostal.textContent = 'Code Postal manquant';
+        missCodepostal.style.color = 'red';
+    }else if (codepostalValid.test(codepostal.value)==false){
+        event.preventDefault();
+        missCodepostal.textContent = 'Code Postal incorrect, veuillez écrire un code à 5 chiffres';
+        missCodepostal.style.color = 'red';
+    }
+    //Ville
+    if (ville.validity.valueMissing){
+        event.preventDefault();
+        missVille.textContent = 'Ville manquante';
+        missVille.style.color = 'red';
+    }
+    //Mail
+    if (mail.validity.valueMissing){
+        event.preventDefault();
+        missMail.textContent = 'E-mail manquant';
+        missMail.style.color = 'red';
+    }
+    else if (mailValid.test(mail.value)==false) {
+        event.preventDefault();
+        missMail.textContent = 'E-mail incorrect, @ manquant';
+        missMail.style.color = 'red';
+    }
+    
+}
+
+//Insére le mot choisit dans la liste dans la zone de texte
+document.getElementById("environnement").addEventListener("change", function select() 
+{
+    console.log("ok");
+    document.getElementById("textenvironnement").value=document.getElementById("environnement").value;
+    document.getElementById("environnement").options[0].style.display = "none";
+}
+);
+*/
 

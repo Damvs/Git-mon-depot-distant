@@ -17,7 +17,7 @@
     <section>
         <div class="row">
             <div class="col-12">
-                <form action="" method="POST" id="formulaire_contact" onsubmit="return verif()">
+                <form action="" method="POST" id="formulaire_contact" onsubmit="return validation()">
                     <h3 class="my-3">Vos Coordonnées :</h3>
                     <div class="row col-12">
                         <p class="text-danger">* Ces zones sont obligatoires pour envoyer le formulaire</p>
@@ -26,16 +26,18 @@
                     <div class="form-inline col-12 ml-5 my-1 mt-n1">
                         <div class="form-group">
                             <label for="societe" class="col-3">Société : </label>
-                            <input type="text" class="form-text form-control col-6 ml-5" name="societe" id="societe">
+                            <input type="text" class="form-text form-control col-6 ml-5" minlength="1" name="societe" id="societe" required>
                             <h5 class="text-right col-1 text-danger">*</h5>
+                            <span id="missSociete"></span> <br>
                         </div>
                     </div>
                     <!-- 2ème Input / Personne à contacter-->
                     <div class="form-inline ml-5 my-1">
                         <div class="form-group">
                             <label for="personne" class="">Personne à contacter : </label>
-                            <input type="text" class="form-text form-control col-5 ml-5" name="personne" id="personne">
+                            <input type="text" class="form-text form-control col-5 ml-5" name="personne" id="personne" required>
                             <h5 class="text-right col-1 text-danger">*</h5>
+                            <span id="missPersonne"></span> <br>
                         </div>
                     </div>
                     <!-- 3ème Input / Adresse de l'entreprise-->
@@ -48,22 +50,25 @@
                     <div class="form-inline col-12 ml-5 my-1">
                         <div class="form-group">
                             <label for="codepostal" class="col">Code postal :</label>
-                            <input type="text" class="form-text form-control col-6" name="codepostal" id="codepostal" maxlength="5">
+                            <input type="text" class="form-text form-control col-6" name="codepostal" id="codepostal" maxlength="5" required>
                             <h5 class="text-right col-1 text-danger">*</h5>
+                            <span id="missCodepostal"></span> <br>
                         </div>
                     </div>
                     <div class="form-inline col-12 ml-5 my-1">
                         <div class="form-group">
                             <label for="ville" class="col mr-5">Ville :</label>
-                            <input type="text" class="form-text form-control col-6" name="ville" id="ville">
+                            <input type="text" class="form-text form-control col-6" name="ville" id="ville" required>
                             <h5 class="text-right col-1 text-danger">*</h5>
+                            <span id="missVille"></span> <br>
                         </div>
                     </div>
                     <div class="form-inline col-12 ml-5 my-1">
                         <div class="form-group">
                             <label for="mail" class="col mr-5">E-mail :</label>
-                            <input type="email" class="form-text form-control" name="mail" id="mail">
+                            <input type="email" class="form-text form-control" name="mail" id="mail" required>
                             <h5 class="text-right col-1 text-danger">*</h5>
+                            <span id="missMail"></span> <br>
                         </div>  
                     </div>
                     <div class="form-inline col-12 ml-5">
@@ -78,27 +83,27 @@
                         <textarea name="textenvironnement" id="textenvironnement" rows="6" class="border" onChange="return select()"></textarea>
                         </div>
                         <div class="col-4 mt-n5 ml-5">
-                            <select class="custom-select" id="environnement">
+                            <select class="custom-select" name="environnement" id="environnement">
                                 <option selected>Choisissez</option>
-                                <option value="1">Access</option>
-                                <option value="2">Java</option>
-                                <option value="3">Delphi</option>
-                                <option value="4">Windev</option>
-                                <option value="5">Visual Basic</option>
-                                <option value="6">Power Builder</option>
-                                <option value="7">Internet</option>
-                                <option value="8">Intranet</option>
-                                <option value="9">Windows NT</option>
-                                <option value="10">Unix</option>
-                                <option value="11">SQL Server</option>
-                                <option value="12">Oracle</option>
-                                <option value="13">Autres...</option>
+                                <option value="Access">Access</option>
+                                <option value="Java">Java</option>
+                                <option value="Delphi">Delphi</option>
+                                <option value="Windev">Windev</option>
+                                <option value="Visual Basic">Visual Basic</option>
+                                <option value="Power Builder">Power Builder</option>
+                                <option value="Internet">Internet</option>
+                                <option value="Intranet">Intranet</option>
+                                <option value="Windows NT">Windows NT</option>
+                                <option value="Unix">Unix</option>
+                                <option value="SQL Server">SQL Server</option>
+                                <option value="Oracle">Oracle</option>
+                                <option value="Autres...">Autres...</option>
                             </select>
                         </div>    
                     </div>
                     <div class="row">
                         <div class="col-12 text-center mt-4">
-                            <button type="submit" class="btn btn-dark mr-1 border-primary">Envoyer</button>
+                            <button type="submit" class="btn btn-dark mr-1 border-primary" id="btnEnvoi">Envoyer</button>
                             <button type="reset" class="btn btn-dark border-primary">Effacer</button>
                         </div>
                     </div>
