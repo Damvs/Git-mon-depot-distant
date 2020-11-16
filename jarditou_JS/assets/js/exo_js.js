@@ -512,3 +512,84 @@ function verif()
 }
 */
 
+function verif() 
+{
+    if (verifSociete==true && verifPersonne==true && verifCodepostal==true && verifMail==true && verifVille==true) //verif all control
+    {
+        return console.log("verif ok")
+    }else{
+        return console.log("verif NON")
+    }
+    
+        //verification si societe a bien au moins 1 caractère
+        function verifSociete()
+        {
+            if (document.getElementById("societe").value.length<1) 
+            {
+                alert('Le champs de saisie "Société" doit comporter au moins 1 caractère');
+                return false;
+            } else {
+                return true;
+            } 
+        }
+
+        //verification si personne a bien au moins 1 caractère
+        function verifPersonne() 
+        {
+            if (document.getElementById("personne").value.length<1)
+            {
+                alert('Le champs de saisie "Personne à contacter" doit comporter au moins 1 caractère');
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        //verification si codepostal a bien 5 caractères
+        function verifCodepostal() 
+        {
+            if (document.getElementById("codepostal").value.length!=5)
+            {
+                alert('Le champs de saisie "Code Postal" doit comporter 5 chiffres');
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        //verification si ville a bien au moins 1 caractère
+        function verifVille() 
+        {
+            if (document.getElementById("ville").value.length<1)
+            {
+                alert('Le champs de saisie "Ville" doit comporter au moins 1 caractère');
+                return false;
+            } else {
+                return true;
+            }
+        }
+        
+        /*//verification si mail a bien un @
+        function verifMail() {
+            if (document.getElementById("mail").value.indexOf("@"))
+            {
+                alert('Le champs de saisie "E-mail" doit comporter un "@"');
+                return false;
+            } else {
+                return true;
+            }
+        }  */
+
+}
+
+//Insére le mot choisit dans la liste dans la zone de texte
+function select() 
+{
+    
+    if (document.getElementById("environnement".value!=0)) 
+    {
+        document.getElementById("textenvironnement").value=document.getElementById("environnement").value;
+    }
+
+}
+
