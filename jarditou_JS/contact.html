@@ -64,34 +64,39 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <form action="destination.php" method="POST" id="formulaire_contact">
+                <form action="" method="POST" id="formulaire_contact">
                     <h1>Vos Coordonnées</h1>
                     <div class="form-group mt-4">
                         <label for="nom">Nom*</label>
-                        <input type="text" class="form-text form-control" name="nom" id="nom" placeholder="Veuillez saisir votre nom">
+                        <input type="text" class="form-text form-control" name="nom" id="nom" placeholder="Veuillez saisir votre nom" required>
+                        <span id="missNom"></span>
                     </div>
                     <div class="form-group mt-4">
                         <label for="prenom">Prénom*</label>
-                        <input type="text" class="form-text form-control" name="prenom" id="prenom" placeholder="Veuillez saisir votre prénom">
+                        <input type="text" class="form-text form-control" name="prenom" id="prenom" placeholder="Veuillez saisir votre prénom" required>
+                        <span id="missPrenom"></span>
                     </div>
                     <div class="form-group mt-4">
                         <p><d1>Sexe*</d1></p>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="sexe" id="feminin" value="feminin" checked>
+                            <input class="form-check-input" type="radio" name="sexe" id="feminin" value="feminin" checked required>
                             <label class="form-check-label" for="feminin">Féminin</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="sexe" id="masculin" value="masculin">
+                            <input class="form-check-input" type="radio" name="sexe" id="masculin" value="masculin" required>
                             <label class="form-check-label" for="masculin">Masculin</label>
                         </div>
+                        <span id="missSexe"></span>
                     </div> 
                     <div class="form-group mt-4">
                         <label for="birthday">Date de Naissance*</label>
-                        <input type="date" class="form-text form-control" name="birthday" id="birthday">
+                        <input type="date" class="form-text form-control" name="birthday" id="birthday" required>
+                        <span id="missBirthday"></span>
                     </div>
                     <div class="form-group mt-4">
                         <label for="codepostal">Code postal*</label>
-                        <input type="text" class="form-text form-control" name="codepostal" id="codepostal" maxlength="5">
+                        <input type="text" class="form-text form-control" name="codepostal" id="codepostal" maxlength="5" required>
+                        <span id="missCodepostal"></span>
                     </div>
                     <div class="form-group mt-4">
                         <label for="adresse">Adresse</label>
@@ -103,7 +108,8 @@
                     </div>
                     <div class="form-group mt-4">
                         <label for="mail">Email*</label>
-                        <input type="email" class="form-text form-control" name="mail" id="mail" placeholder="dave.loper@afpa.fr">
+                        <input type="email" class="form-text form-control" name="mail" id="mail" placeholder="dave.loper@afpa.fr" required>
+                        <span id="missMail"></span>
                     </div>
                     <h1>Votre demande</h1>
                     <div class="form-group mt-4">
@@ -117,16 +123,16 @@
                     </div>
                     <div class="form-group">
                         <label for="question">Votre question* :</label> <br>
-                        <textarea name="question" id="question" cols="155" rows="3" class="col-12 border"></textarea>
+                        <textarea name="question" id="question" cols="155" rows="3" class="col-12 border" required></textarea>
                     </div>
                     <div class="form-group">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="checkform">
-                            <label class="form-check-label" for="checkform">J'accepte le traitement informatique de ce formulaire</label>
+                            <input class="form-check-input" type="checkbox" id="checkform" required>
+                            <label class="form-check-label" for="checkform">J'accepte le traitement informatique de ce formulaire*</label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-dark mr-1 border-primary">Envoyer</button>
-                    <button type="reset" class="btn btn-dark border-primary">Annuler</button>
+                    <button type="submit" class="btn btn-dark mr-1 border-primary" id="bouton_envoi">Envoyer</button>
+                    <button type="reset" class="btn btn-dark border-primary" id="bouton_annuler">Annuler</button>
                 </form>
             </div>
         </div>
@@ -162,5 +168,6 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="assets/js/contact_form.js"></script>
 </body>
 </html>
