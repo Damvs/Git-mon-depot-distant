@@ -664,3 +664,14 @@ document.getElementById("environnement").addEventListener("change", function sel
 );
 */
 
+//Bouton de test HTML
+/*
+<input type="radio" id="toc" />
+<button type="button" onclick="test();">Test</button>
+ 
+<script type="text/javascript">
+function test() {
+    alert(document.getElementById('toc').checked);
+}
+</script>
+*/
