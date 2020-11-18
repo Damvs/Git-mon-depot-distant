@@ -46,6 +46,7 @@ div{ /*Placement de la Colonne droite*/
     width: 385px;
     margin-top: 5pt;
     visibility: hidden;
+    display: none;
 }
 
 
@@ -65,4 +66,9 @@ img{
 footer nav{
     display: block;
     margin-top: 25pt;
+}
+
+table {
+    display: block;
+    overflow-x: auto;
 }

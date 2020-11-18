@@ -44,6 +44,7 @@ div{ /*Placement de la Colonne droite*/
     height: 496px;
     width: 385px;
     margin-top: 5pt;
+    display: flex;
 }
 
 h1{
