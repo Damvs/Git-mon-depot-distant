@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS Hotel;
+DROP DATABASE IF EXISTS HotelDB;
 
-CREATE DATABASE Hotel;
+CREATE DATABASE HotelDB;
 
-USE Hotel;
+USE HotelDB;
 
 CREATE TABLE Station (
     sta_num INT NOT NULL, 
@@ -50,3 +50,15 @@ CREATE TABLE Reservation (
     ,CONSTRAINT Reservation_Chambre_FK FOREIGN KEY (cha_num) REFERENCES Chambre (cha_num)
     ,CONSTRAINT Reservation_Client_FK FOREIGN KEY (cli_num) REFERENCES Client (cli_num)
 );
+
+CREATE USER 'util1'@'%' IDENTIFIED BY 'mdp1';
+CREATE USER 'util2'@'%' IDENTIFIED BY 'mdp2';
+CREATE USER 'util3'@'%' IDENTIFIED BY 'mdp3';
+
+GRANT ALL PRIVILEGES ON hotel TO 'util1'@'%' IDENTIFIED BY 'mdp1';
+GRANT SELECT ON hotel TO 'util2'@'%' IDENTIFIED BY 'mdp2';
+GRANT SELECT ON hotel.Station TO 'util3'@'%' IDENTIFIED BY 'mdp3';
+
+--DROP USER 'util1'@'%';
+--DROP USER 'util2'@'%';
+--DROP USER 'util3'@'%';
