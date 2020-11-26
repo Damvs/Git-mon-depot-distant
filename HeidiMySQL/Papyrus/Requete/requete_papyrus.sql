@@ -37,10 +37,35 @@ WHERE MONTH (datcom) = 3 OR MONTH (datcom) = 4
 -- Quelles sont les commandes du jourqui ont des observations particulières ?(Affichage numéro de commande, date de commande)
 SELECT numcom, datcom, obscom
 FROM entcom
-WHERE obscom IS NOT NULL
+WHERE obscom NOT LIKE ""
 
 -- Lister le total de chaque commande par total décroissant (Affichage numéro de commande et total)
+SELECT numcom, qtecde*priuni
+FROM ligcom
+ORDER BY qtecde*priuni DESC
 
+-- Lister les commandesdont le total est supérieur à 10000€; on exclura dans le calcul du total les articles commandés en quantité supérieure ou égale à 1000.(Affichage numéro de commande et total)
+SELECT numcom, qtecde*priuni
+FROM ligcom
+WHERE qtecde < 1000
+GROUP BY numcom
+ORDER BY qtecde*priuni DESC
 
+-- Lister les commandes par nom fournisseur (Afficher le nom du fournisseur, le numéro de commande et la date)
+SELECT nomfou, numcom, datcom
+FROM entcom
+INNER JOIN fournis
+ON numfou = ent_numfou
 
+-- Sortir les produits des commandes ayant le mot "urgent' en observation?(Afficher le numéro de commande, le nom du fournisseur, le libellé du produit et le sous total= quantité commandée * Prix unitaire)
+SELECT ligcom.numcom, nomfou, libart, qtecde*priuni
+FROM ligcom
+JOIN produit
+ON ligcom.codart = produit.codart  
+JOIN entcom
+ON ligcom.numcom = entcom.numcom
+JOIN fournis
+ON ent_numfou = numfou
+WHERE obscom LIKE "%urgent%"
+ 
 
