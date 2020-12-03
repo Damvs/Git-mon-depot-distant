@@ -94,7 +94,6 @@ echo calculator(1.2,'-',2);
 */
 
 
-
 ?> 
 </body>
 </html>
