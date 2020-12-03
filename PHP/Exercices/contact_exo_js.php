@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Nous contacter</title>
+</head>
+
+<body>
+<div class="container-fluid">
+
+    <section>
+        <div class="row">
+            <div class="col-12">
+                <form action="post.php" method="post" id="formulaire_contact" onsubmit="return validation()" enctype="multipart/form-data">
+                    <h3 class="my-3">Vos Coordonnées :</h3>
+                    <div class="row col-12">
+                        <p class="text-danger">* Ces zones sont obligatoires pour envoyer le formulaire</p>
+                    </div>
+                    <!-- 1er Input / Société -->
+                    <div class="form-inline col-12 ml-5 my-1 mt-n1">
+                        <div class="form-group">
+                            <label for="societe" class="col-3">Société : </label>
+                            <input type="text" class="form-text form-control col-6 ml-5" minlength="1" name="societe" id="societe" required>
+                            <h5 class="text-right col-1 text-danger">*</h5>
+                            <span id="missSociete"></span> <br>
+                        </div>
+                    </div>
+                    <!-- 2ème Input / Personne à contacter-->
+                    <div class="form-inline ml-5 my-1">
+                        <div class="form-group">
+                            <label for="personne" class="">Personne à contacter : </label>
+                            <input type="text" class="form-text form-control col-5 ml-5" name="personne" id="personne" required>
+                            <h5 class="text-right col-1 text-danger">*</h5>
+                            <span id="missPersonne"></span> <br>
+                        </div>
+                    </div>
+                    <!-- 3ème Input / Adresse de l'entreprise-->
+                    <div class="form-inline col-12 ml-5 my-1">
+                        <div class="form-group ">
+                            <label for="adresse col-6">Adresse de l'entreprise : </label>
+                            <textarea type="text" class="form-text form-control col-5 ml-5" rows="3" name="adresse" id="adresse"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-inline col-12 ml-5 my-1">
+                        <div class="form-group">
+                            <label for="codepostal" class="col">Code postal :</label>
+                            <input type="text" class="form-text form-control col-6" name="codepostal" id="codepostal" maxlength="5" required>
+                            <h5 class="text-right col-1 text-danger">*</h5>
+                            <span id="missCodepostal"></span> <br>
+                        </div>
+                    </div>
+                    <div class="form-inline col-12 ml-5 my-1">
+                        <div class="form-group">
+                            <label for="ville" class="col mr-5">Ville :</label>
+                            <input type="text" class="form-text form-control col-6" name="ville" id="ville" required>
+                            <h5 class="text-right col-1 text-danger">*</h5>
+                            <span id="missVille"></span> <br>
+                        </div>
+                    </div>
+                    <div class="form-inline col-12 ml-5 my-1">
+                        <div class="form-group">
+                            <label for="mail" class="col mr-5">E-mail :</label>
+                            <input type="email" class="form-text form-control" name="mail" id="mail" required>
+                            <h5 class="text-right col-1 text-danger">*</h5>
+                            <span id="missMail"></span> <br>
+                        </div>  
+                    </div>
+                    <div class="form-inline col-12 ml-5">
+                        <div class="form-group">
+                            <label for="phone" class="col mr-4">Téléphone :</label>
+                            <input type="text" class="form-text form-control col-7" name="phone" id="phone">
+                        </div>
+                    </div>
+                    <div class="form-group mt-2">
+                        <div class="form-inline col-12 ml-5">
+                        <p class="col-4 pb-5"><d1>Sélectionnez l'environnement technique du projet : </d1></p>
+                        <textarea name="textenvironnement" id="textenvironnement" rows="6" class="border" onChange="return select()"></textarea>
+                        </div>
+                        <div class="col-4 mt-n5 ml-5">
+                            <select class="custom-select" name="environnement" id="environnement">
+                                <option selected>Choisissez</option>
+                                <option value="Access">Access</option>
+                                <option value="Java">Java</option>
+                                <option value="Delphi">Delphi</option>
+                                <option value="Windev">Windev</option>
+                                <option value="Visual Basic">Visual Basic</option>
+                                <option value="Power Builder">Power Builder</option>
+                                <option value="Internet">Internet</option>
+                                <option value="Intranet">Intranet</option>
+                                <option value="Windows NT">Windows NT</option>
+                                <option value="Unix">Unix</option>
+                                <option value="SQL Server">SQL Server</option>
+                                <option value="Oracle">Oracle</option>
+                                <option value="Autres...">Autres...</option>
+                            </select>
+                        </div>    
+                    </div>
+                    <div class="form-group mt-2">   
+                        <input type="file" name="fichier"> 
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-center mt-4">
+                            <button type="submit" class="btn btn-dark mr-1 border-primary" id="btnEnvoi">Envoyer</button>
+                            <button type="reset" class="btn btn-dark border-primary">Effacer</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
