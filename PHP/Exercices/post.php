@@ -25,8 +25,10 @@ finfo_close($finfo);
 
 if (in_array($mimetype, $aMimeTypes))
 {
-    /* Le type est parmi ceux autorisés, donc OK, on va pouvoir 
+   /* Le type est parmi ceux autorisés, donc OK, on va pouvoir 
        déplacer et renommer le fichier */
+   $extension = substr(strrchr($_FILES["fichier"]["name"], "."), 1);
+   move_uploaded_file($_FILES["fichier"]["tmp_name"], "depot_fichier_upload/pro_id.$extension"); //renomer et deplacer le fichier upload     
 
 } 
 else 
@@ -37,11 +39,7 @@ else
    exit;
 }    
 
-$extension = substr(strrchr($_FILES["fichier"]["name"], "."), 1);
-
-move_uploaded_file($_FILES["fichier"]["tmp_name"], "C:\Users\Damien\Desktop\Depot_image_server/pho_id.$extension"); //renomer et deplacer le fichier upload     
-
-chmod("C:\Users\Damien\Desktop\Depot_image_server\pho_id.jpg", 0744); //Tout droit pour user, lecture seule pour les autres
+//chmod("C:\Users\Damien\Desktop\Depot_image_server\pho_id.jpg", 0744); //Tout droit pour user, lecture seule pour les autres
 
 ?> 
 </body>
