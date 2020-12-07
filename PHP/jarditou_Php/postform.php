@@ -3,6 +3,67 @@
 
 <?php 
 
+$nom = valid_donnees($_POST["nom"]);
+$prenom = valid_donnees($_POST["prenom"]);
+$sexe = valid_donnees($_POST["sexe"]);
+$birthday = valid_donnees($_POST["birthday"]);
+$codepostal = valid_donnees($_POST["codepostal"]);
+$adresse = valid_donnees($_POST["adresse"]);
+$ville = valid_donnees($_POST["ville"]);
+$mail = valid_donnees($_POST["mail"]);
+$question = valid_donnees($_POST["question"]);
+
+function valid_donnees($donnees){
+   $donnees = trim($donnees); //Enleve les espaces avant et après la saisie
+   $donnees = stripslashes($donnees);//Enleve les antislashes
+   $donnees = htmlspecialchars($donnees);//Permet affichage certains char en html
+   return $donnees;
+}
+
+if (!empty($nom) 
+   && strlen($nom)<=30 
+   && preg_match("^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ]+([-'\s][a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ][a-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ]+)?$",$nom))
+   {
+      echo "Ok";
+   }
+   else
+   {
+      echo "Le nom doit être renseigné";
+   }
+
+if (!empty($prenom) 
+   && strlen($prenom)<=30 
+   && preg_match("^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ]+([-'\s][a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ][a-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ]+)?$",$prenom))
+   {
+      echo "Ok";
+   }
+else
+   {
+      echo "Le prénom doit être renseigné";
+   }
+
+if (isset($sexe)) 
+   {
+      echo "Ok";
+   }
+else
+   {
+      echo "Vous devez cocher une case entre Masculin et Féminin";
+   }
+
+if (checkdate($birthday)) 
+   {
+      echo "Ok";
+   }
+else
+   {
+      echo "Vous devez saisir une date valide";
+   }
+
+
+
+
+
 
 var_dump($_FILES);
 
