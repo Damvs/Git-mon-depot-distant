@@ -25,7 +25,7 @@
         <div class="row">
             <div class="col-12">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="index.html">Jarditou.com</a>
+                    <a class="navbar-brand" href="index.php">Jarditou.com</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -114,7 +114,7 @@
                     <h1>Votre demande</h1>
                     <div class="form-group mt-4">
                         <p><d1>Sujet</d1></p>
-                        <select class="custom-select">
+                        <select class="custom-select" name="sujet">
                             <option selected>Veuillez sélectionner un sujet</option>
                             <option value="1">Promotion</option>
                             <option value="2">Recrutement</option>
@@ -128,7 +128,7 @@
                     </div>
                     <div class="form-group">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="checkform" required>
+                            <input class="form-check-input" type="checkbox" name="checkform" id="checkform" required>
                             <label class="form-check-label" for="checkform">J'accepte le traitement informatique de ce formulaire*</label> <br>
                             <span id="missCheckform"></span>
                         </div>

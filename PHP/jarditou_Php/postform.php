@@ -11,7 +11,9 @@ $codepostal = valid_donnees($_POST["codepostal"]);
 $adresse = valid_donnees($_POST["adresse"]);
 $ville = valid_donnees($_POST["ville"]);
 $mail = valid_donnees($_POST["mail"]);
+$sujet = valid_donnees($_POST["sujet"]);
 $question = valid_donnees($_POST["question"]);
+$checkform = valid_donnees($_POST["checkform"]);
 
 function valid_donnees($donnees){
    $donnees = trim($donnees); //Enleve les espaces avant et après la saisie
@@ -20,40 +22,40 @@ function valid_donnees($donnees){
    return $donnees;
 }
 
-if (!empty($nom) 
-   && strlen($nom)<=30 
-   && preg_match("^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ]+([-'\s][a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ][a-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ]+)?$",$nom))
+if (!empty($nom) //Si non vide
+   && strlen($nom)<=30 //si longueur plus petite que 30
+   && preg_match("/^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ]+([-'\s][a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ][a-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ]+)?$/",$nom))
    {
-      echo "Ok";
+      echo $nom."<br>";
    }
    else
    {
-      echo "Le nom doit être renseigné";
+      echo "Le nom doit être renseigné <br>";
    }
 
 if (!empty($prenom) 
    && strlen($prenom)<=30 
-   && preg_match("^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ]+([-'\s][a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ][a-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ]+)?$",$prenom))
+   && preg_match("/^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ]+([-'\s][a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ][a-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ]+)?$/",$prenom))
    {
-      echo "Ok";
+      echo $prenom."<br>";
    }
 else
    {
-      echo "Le prénom doit être renseigné";
+      echo "Le prénom doit être renseigné <br>";
    }
 
-if (isset($sexe)) 
+if (isset($sexe)) //Si le bouton est set
    {
-      echo "Ok";
+      echo $sexe."<br>";
    }
 else
    {
-      echo "Vous devez cocher une case entre Masculin et Féminin";
+      echo "Vous devez cocher une case entre Masculin et Féminin <br>";
    }
 
-if (checkdate($birthday)) 
+if (!empty($birthday)) 
    {
-      echo "Ok";
+      echo $birthday."<br>";
    }
 else
    {
@@ -61,9 +63,58 @@ else
    }
 
 
+if (!empty($codepostal)
+   && preg_match("/^\d{5}$/",$codepostal)) //regex code postal
+{
+   echo $codepostal."<br>";
+}
+else
+{
+   echo "Veuillez entrer un code postal valide <br>";
+}
 
+if (!empty($adresse))
+{
+   echo $adresse."<br>";
+}
 
+if (!empty($ville))
+{
+   echo $ville."<br>";
+}
 
+if (!empty($mail)
+   && preg_match("/^([\w\.-]+@[\w\.-]+\.[\w\s]+)$/",$mail)) //regex mail
+{
+   echo $mail."<br>";
+}
+else
+{
+   echo "Veuillez entrer un mail valide <br>";
+}
+
+if (!empty($sujet))
+{
+   echo $sujet."<br>";
+}
+
+if (!empty($question))
+{
+   echo $question."<br>";
+}
+else
+{
+   echo "Veuillez poser votre question <br>";
+}
+
+if (!empty($checkform))
+{
+   echo "checkform Ok <br>";
+}
+else
+{
+   echo "Veuillez valider le traitement du dossier en cochant la case prévue à cet effet";
+}
 
 var_dump($_FILES);
 

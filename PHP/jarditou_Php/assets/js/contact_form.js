@@ -96,7 +96,7 @@ function verif(event) {
     if (checkform.validity.valueMissing) //Si la case n'est pas cochée
     {
         event.preventDefault();//on annule l'envoi
-        missCheckform.textContent = '*Veuillez cocher pour accepter le traitement de ce formulaire';
+        missCheckform.textContent = '*Veuillez cocher cette case pour accepter le traitement de ce formulaire';
         missCheckform.style.color = 'red';
     }   
 
