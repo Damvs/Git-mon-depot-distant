@@ -36,7 +36,7 @@
                                 <a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="tableau_Copie.php">Tableau</a>
+                                <a class="nav-link" href="tableau.php">Tableau</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.php">Contact</a>
@@ -98,7 +98,28 @@
         </div>
     </footer>
 
+<?php 
+// On ouvre le fichier moncompteur.txt
+$fichier = fopen("moncompteur.txt","r+");
 
+// on lit le nombre indiqué dans ce fichier dans la variable
+$visiteurs = fgets($fichier,255);
+
+// on ajoute 1 au nombre de visiteurs
+$visiteurs++;
+
+// on se positionne au début du fichier
+fseek($fichier,0);
+
+// on écrit le nouveau nombre dans le fichier
+fputs($fichier,$visiteurs);
+
+// on referme le fichier moncompteur.txt
+fclose($fichier);
+
+// on indique sur la page le nombre de visiteurs
+print("$visiteurs personnes sont passées par ici");
+?>
 
 </div>
     <!-- Optional JavaScript -->

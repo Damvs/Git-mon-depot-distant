@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Jarditou-Tableau</title>
+    <title>Jarditou-Accueil</title>
 </head>
 
 <body>
@@ -36,7 +36,7 @@
                                 <a class="nav-link" href="index.php">Accueil </a> <span class="sr-only">(current)</span>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link " href="tableau_Copie.php">Tableau </a>
+                                <a class="nav-link " href="tableau.php">Tableau </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.php">Contact</a>
@@ -61,12 +61,12 @@
     <!------------
         TABLEAU
     ------------->
-    <section>
+        <section>
         <div class="row">
             <div class="col-12">
                 <table class="table table-bordered table-image table-responsive">
                     <thead>
-                        <tr class="table-active">
+                        <tr class="table-active bg-light">
                             <th>Photo</th>
                             <th>ID</th>
                             <th>Référence</th>
@@ -79,75 +79,54 @@
                             <th>Bloqué</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr class="table-warning">
-                            <td class="w-25"><img src="src/img/7.jpg" alt="imgbarbecues" class="img-fluid"></td>
-                            <td>7</td>
-                            <td>Barbecues</td>
-                            <td>Aramis</td>
-                            <td>110.00€</td>
+<?php
+    
+    require "connexion_jarditouDB.php"; // Connexion base
+    $requete = "SELECT * FROM produits";
+    $result = $db->query($requete);
+    $nbLigne = $result->rowCount(); // Nombre de lignes retournées par la requête
+    if ($nbLigne > 1) {             
+        while ($row = $result->fetch(PDO::FETCH_OBJ)) // Tant qu'il y a des lignes à afficher :
+        { 
+    ?>
+
+                    <tbody class="border border-dark">
+                        <tr class="table-secondary">
+                            <td class="w-25 bg-warning"><img src="<?php echo "src/img/";echo $row->pro_id;echo "."; echo $row->pro_photo ?>" alt="imgproduit" class="img-fluid"></td>
+                            <td><?php echo $row->pro_id ?></td>
+                            <td><?php echo $row->pro_ref ?></td>
+                            <td class="bg-warning"><a class="text-danger text-uppercase" href="details.php?pro_id=<?php echo $row->pro_id; ?>" title="Modifier"><u><b><?php echo $row->pro_libelle ?></b></u></a></td>
+                            <td><?php echo $row->pro_prix."€" ?></td>
+                            <td><?php echo $row->pro_stock ?></td>
+                            <td><?php echo $row->pro_couleur ?></td>
+                            <td><?php echo $row->pro_d_ajout ?></td>
                             <td></td>
-                            <td>Brun</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td class="w-25"><img src="src/img/8.jpg" alt="imgbarbecues" class="img-fluid"></td>
-                            <td>8</td>
-                            <td>Barbecues</td>
-                            <td>Athos</td>
-                            <td>249.99€</td>
-                            <td></td>
-                            <td>Noir</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr class="table-warning">
-                            <td class="w-25"><img src="src/img/11.jpg" alt="imgbarbecues" class="img-fluid"></td>
-                            <td>11</td>
-                            <td>Barbecues</td>
-                            <td>Clatronic</td>
-                            <td>135.90€</td>
-                            <td></td>
-                            <td>Chrome</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td class="w-25"><img src="src/img/12.jpg" alt="imgbarbecues" class="img-fluid"></td>
-                            <td>12</td>
-                            <td>Barbecues</td>
-                            <td>Camping</td>
-                            <td>88.00€</td>
-                            <td></td>
-                            <td>Noir</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr class="table-warning">
-                            <td class="w-25"><img src="src/img/13.jpg" alt="imgbrouette" class="img-fluid"></td>
-                            <td>13</td>
-                            <td>Brouette</td>
-                            <td>Green</td>
-                            <td>49.00€</td>
-                            <td></td>
-                            <td>Verte</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td><?php echo $row->pro_bloque ?></td>
                         </tr>
                     </tbody>
+
+    
+    <?php 
+        }
+
+        
+$result->closeCursor(); // Libère la connexion au serveur
+
+}  
+?>
                 </table>
             </div>
         </div>
     </section>
     <!--------------
         Fin Tableau
-    --------------->
+    --------------->    
+    
+    <!-- Bouton créer nouvel enregistrement -->
+    <div class="col-12">
+        <a class="btn btn-success btn mr-3 border-dark" href="add_form.php">Ajouter un produit</a>
+    </div>
+
     <br>
     <footer>
         <div class="row">

@@ -36,7 +36,7 @@
                                 <a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="tableau_Copie.php">Tableau</a>
+                                <a class="nav-link" href="tableau.php">Tableau</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.php">Contact</a>
@@ -59,8 +59,6 @@
     </header>
 
     <section>
-        <div class="row col-12 my-3">
-        </div>
         <div class="row">
             <div class="col-12">
                 <form action="" method="post" id="formulaire_modif">
@@ -79,6 +77,9 @@
 
                 ?>
 
+                    <div class="row col-12 my-5 w-25 img rounded mx-auto d-block">
+                        <img src="<?php echo "src/img/";echo $row->pro_id;echo "."; echo $row->pro_photo ?>" alt="imgproduit" class="img-fluid">
+                    </div>
                     <div class="form-group mt-4">
                         <label for="reference">Reference : </label>
                         <input type="text"  class="form-text form-control" value="<?php echo $row->pro_ref ?>" name="reference" id="reference" readonly disabled>
@@ -94,8 +95,8 @@
                         <input type="text" class="form-text form-control" name="libelle" id="libelle" value="<?php echo $row->pro_libelle ?>" readonly disabled>
                     </div>                    
                     <div class="form-group">
-                        <label for="question">Description :</label> <br>
-                        <textarea name="question" id="question" cols="155" rows="3" class="col-12 border" readonly disabled><?php echo $row->pro_description ?></textarea>
+                        <label for="description">Description :</label> <br>
+                        <textarea name="description" id="description" cols="155" rows="3" class="col-12 border" readonly disabled><?php echo $row->pro_description ?></textarea>
                     </div>                    
                     <div class="form-group mt-4">
                         <label for="prix">Prix : </label>
@@ -130,9 +131,9 @@
                         <input type="datetime" class="form-text form-control" value="<?php echo $row->pro_d_modif ?>" name="date-modif" id="date-modif" readonly disabled>
                     </div>
                     <div class="form-group mt-4">
-                        <a class="btn btn-secondary btn-lg mr-3 border-dark" href="tableau_Copie.php">Retour</a>
-                        <a class="btn btn-warning btn-lg mr-3 border-dark" href="update_form.php">Modifier</a>
-                        <a class="btn btn-danger btn-lg mr-3 border-dark" href="delete_form.php">Supprimer</a>
+                        <a class="btn btn-secondary btn-lg mr-3 border-dark" href="tableau.php">Retour</a>
+                        <a class="btn btn-warning btn-lg mr-3 border-dark" href="update_form.php?pro_id=<?php echo $row->pro_id; ?>">Modifier</a>
+                        <a class="btn btn-danger btn-lg mr-3 border-dark" href="delete_form.php?pro_id=<?php echo $row->pro_id; ?>">Supprimer</a>
                     </div>
                 </form>
             </div>

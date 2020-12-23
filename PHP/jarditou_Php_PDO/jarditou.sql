@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 -- Structure de la table `categories`
 --
 
-DROP TABLE IF EXISTS `categories`;
+
 CREATE TABLE IF NOT EXISTS `categories` (
   `cat_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Clé de la table catégorie',
   `cat_nom` varchar(200) NOT NULL COMMENT 'Nom de la catégorie',

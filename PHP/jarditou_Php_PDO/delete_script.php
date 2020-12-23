@@ -13,7 +13,7 @@ $requete->execute();
 $requete->closeCursor();
 
 // Redirection vers index.php
-header("Location: tableau_Copie.php");
+header("Location: tableau.php");
 exit;
 
 
