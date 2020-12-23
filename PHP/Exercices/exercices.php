@@ -200,8 +200,8 @@ $a = array("19001" => array("Centre", "Centre", "Centre", "Centre", "Centre", "C
     );
 
 
-$groupe19002 = $a["19002"];
-echo array_search("Validation",$groupe19002);
+$groupe19002 = $a["19002"]; //création du sous groupe 19002
+echo array_search("Validation",$groupe19002); //affichage de l'index de validation
 */
 
 //Tableaux Exo 2
@@ -211,11 +211,11 @@ $a = array("19001" => array("Centre", "Centre", "Centre", "Centre", "Centre", "C
      "19003" => array("", "", "Centre", "Centre", "Centre", "Centre", "Centre", "Centre", "Centre", "Centre", "Centre", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "", "", "Validation") 
     );
 
-$groupe19001 = $a["19001"];
-$groupe19001 = array_reverse($groupe19001);
-$nbr = count($groupe19001);
-$index = array_search("Stage",$groupe19001);//recherche de la dernière itération de "Stage" pour afficher son index
-echo $nbr - $index;
+$groupe19001 = $a["19001"]; //création du sous groupe 19001
+$groupe19001 = array_reverse($groupe19001); //renversement de l'ordre du groupe pour rechercher la première occurence de "Stage"
+$nbr = count($groupe19001); //compte le nombre total de semaine
+$index = array_search("Stage",$groupe19001);//recherche de la dernière itération de "Stage" pour afficher son index //recherche première occurence de "Stage"
+echo $nbr - $index; //Nombre total de semaine - occurence de tableau renversé afin d'avoir la dernière occurence de "Stage" et donc la dernière semaine de Stage
 */
 
 //Tableaux Exo 3
@@ -225,8 +225,8 @@ $a = array("19001" => array("Centre", "Centre", "Centre", "Centre", "Centre", "C
      "19003" => array("", "", "Centre", "Centre", "Centre", "Centre", "Centre", "Centre", "Centre", "Centre", "Centre", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "", "", "Validation") 
     );
 
-$b = array_keys($a) ;
-var_dump($b);
+$b = array_keys($a) ; //index de $a transmis dans le tableau $b
+var_dump($b); //affichage du tableau $b
 */
 
 //Tableaux Exo 4
@@ -236,15 +236,129 @@ $a = array("19001" => array("Centre", "Centre", "Centre", "Centre", "Centre", "C
      "19003" => array("", "", "Centre", "Centre", "Centre", "Centre", "Centre", "Centre", "Centre", "Centre", "Centre", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "", "", "Validation") 
     );
 
-$groupe19003 = $a["19003"];   
-$b = array_keys($groupe19003,"Stage");
-$stage = count($b);
-echo $stage;
+$groupe19003 = $a["19003"]; //Sous groupe 19003  
+$b = array_keys($groupe19003,"Stage"); //Groupe comportant les index de "Stage"
+$stage = count($b); //Total des index
+echo $stage; //Affichage des semaines de stages
+*/
+
+//Cours formulaire champs à valeur multiple
+/*echo "Tu surfes sur le web en semaine plutôt le : <br>"; 
+
+// Lecture du tableau 
+foreach ($_REQUEST["Fjour"] as $jour)      
+{ 
+    echo"-".$jour."<br>"; 
+} 
+/*
+//A tester avec ce form html
+<form action="exercices.php" method="post"> 
+   Tu utilises internet plutôt le :<br> 
+   <input type="checkbox" name="Fjour[]" value="Lundi">Lundi<br>
+   <input type="checkbox" name="Fjour[]" value="Mardi">Mardi<br>
+   <input type="checkbox" name="Fjour[]" value="Mercredi">Mercredi<br>
+   <input type="checkbox" name="Fjour[]" value="Jeudi">Jeudi<br />
+   <input type="checkbox" name="Fjour[]" value="Vendredi">Vendredi<br>
+   <input type="submit" name="envoyer" value="Envvoyer">
+*/
+
+//DATE EXO 1
+/*
+class DateTimeFrench extends DateTime {
+    public function format($format) {
+        $english_days = array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday');
+        $french_days = array('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche');
+        $english_months = array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'Décember');
+        $french_months = array('Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre');
+        return str_replace($english_months, $french_months, str_replace($english_days, $french_days, parent::format($format)));
+    }
+}
+
+date_default_timezone_set("Europe/Paris");
+setlocale(LC_TIME, 'fr_FR.utf8','fra'); //set français
+$date = new DateTimeFrench ("07/02/2019");
+echo $date->format ('l j F Y');
+*/
+
+//DATE EXO 2
+/*
+$date = new DateTime ("07/14/2019");
+echo $date->format("W"); echo "ème semaine";
+*/
+
+//DATE EXO 3
+/*
+$echeance = '2021/07/09'; // La date de référence
+echo 'Nombre de jours restants : ', floor((strtotime($echeance) - time())/86400);
+*/
+//ou
+/*
+$finFormation = new DateTime('2021-07-09');
+$date = new DateTime();
+$temps = $finFormation->diff($date);
+echo "Il reste ".$temps->days." jours.";
+*/
+
+//DATE EXO 5
+/*
+$date = new DateTime();
+    for ($i = 0; $i < 4; $i++)
+    {
+        $date->modify('+1 years');
+        if ($date->format('L') == 1)
+        {
+            ?>
+               La prochaine année à être bissextile est : <?= $date->format('Y') ?> 
+               <?php
+        }
+    }
+*/
+
+//DATE EXO 6
+/*
+$date = "17/17/2019";
+$testDate = DateTime::createFromFormat('d/m/Y', $date); 
+$error = $testDate->getLastErrors();
+    if ($error['warning_count'] >= 1)
+    {
+        echo "Date erronée";
+    }
+*/
+
+//DATE EXO 7
+/*
+$date=new DateTime ();
+echo $date->format("H\hi");
+*/
+
+//DATE EXO 8
+/*
+$date=new DateTime ();
+$date->add(new DateInterval("P1M"));
+echo $date->format("d/m/yy");
+*/
+
+//Afficher répertoire Fichier
+/*
+function list_dir($name) {
+  if ($dir = opendir($name)) {
+    while($file = readdir($dir)) {
+      echo "$file<br>\n";
+      if(is_dir($file) && !in_array($file, array(".",".."))) {
+        list_dir($file);
+      }
+    }
+    closedir($dir);
+  }
+}
+list_dir(".");
 */
 
 
-
-
 ?> 
+
+
+
+</form> 
 </body>
 </html>
