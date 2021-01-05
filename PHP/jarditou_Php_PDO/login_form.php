@@ -1,11 +1,5 @@
-<?php
-  // Initialiser la session
-  session_start();
-  // Vérifiez si l'utilisateur est connecté, sinon redirigez-le vers la page de connexion
-  if(!isset($_SESSION["username"])){
-    header("Location: login_form.php");
-    exit(); 
-  }
+<?php 
+    session_start();
 ?>
 
 <!doctype html>
@@ -18,7 +12,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Jarditou-Accueil</title>
+    <title>Jarditou-Connexion</title>
 </head>
 
 <body>
@@ -42,7 +36,7 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
+                            <li class="nav-item">
                                 <a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
@@ -52,7 +46,7 @@
                                 <a class="nav-link" href="contact.php">Contact</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="login_form.php">Se connecter</a>
+                                <a class="nav-link active" href="login_form.php">Se connecter</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="login_register.php">S'incrire</a>
@@ -76,20 +70,16 @@
 
     <section>
         <div class="row mx-auto">
-            <div class="col-12 col-lg-8 shadow mb-3">
-                <br>
-                <h2>L'entreprise</h2>
-                    <p>Notre entreprise familiale met tout son savoir-faire à votre disposition dans le domaine du jardin et du paysagisme.</p>
-                    <p>Créée il y a 70 ans, notre entreprise vend fleurs, arbustes, matériel à main et motorisés.</p>
-                    <p>Implantés à Amiens, nous intervenons dans tout le département de la Somme : Albert, Doullens, Péronne, Abbeville, Corbie	</p>
-                <h2>Qualité</h2>
-                    <p>Nous mettons à votre disposition un service personnalisé, avec 1 seul interlocuteur durant tout votre projet. Vous serez séduit par notre expertise, nos compétences et notre sérieux.</p>
-                <h2>Devis gratuit</h2>
-                    <p>Vous pouvez bien sûr contacter pour de plus amples informations ou pour une demande d’intervention. Vous souhaitez un devis ? Nous vous le réalisons gratuitement. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dignissimos, earum enim, nobis odit aspernatur aliquam vitae architecto minima deleniti ea delectus dolore. Deserunt veniam tempore hic sunt, laborum quia.</p>
-            </div>
-            <div class="col-12 col-lg-4 text-center bg-warning shadow mb-3">
-                <br>
-                <h2>[Colonne de droite]</h2>
+            <div class="col-12 shadow mb-3 mt-3 pt-1 text-center bg-secondary">
+                <form action="login_script.php" method="POST">
+                    <label class="mr-4" for="login">Identifiant :</label>
+                    <input type="text" name="login" id="login">
+                    <br>
+                    <label for="mdp">Mot de Passe :</label>
+                    <input type="text" name="mdp" id="mdp">
+                    <br>
+                    <input type="submit" name="submit" value="Connexion">
+                </form>
             </div>
         </div>
     </section>
@@ -114,28 +104,6 @@
         </div>
     </footer>
 
-<?php 
-// On ouvre le fichier moncompteur.txt
-$fichier = fopen("moncompteur.txt","r+");
-
-// on lit le nombre indiqué dans ce fichier dans la variable
-$visiteurs = fgets($fichier,255);
-
-// on ajoute 1 au nombre de visiteurs
-$visiteurs++;
-
-// on se positionne au début du fichier
-fseek($fichier,0);
-
-// on écrit le nouveau nombre dans le fichier
-fputs($fichier,$visiteurs);
-
-// on referme le fichier moncompteur.txt
-fclose($fichier);
-
-// on indique sur la page le nombre de visiteurs
-print("$visiteurs personnes sont passées par ici");
-?>
 
 </div>
     <!-- Optional JavaScript -->
