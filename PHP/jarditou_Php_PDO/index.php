@@ -1,17 +1,8 @@
-<?php
-  // Initialiser la session
-  session_start();
-  // Vérifiez si l'utilisateur est connecté, sinon redirigez-le vers la page de connexion
-  if(!isset($_SESSION["login"])){
-    header("Location: login_form.php");
-    exit(); 
-  }
-?>
-
 <?php 
     include("header.php");
 ?>
 
+<?php echo "Bienvenue  ".$_SESSION["users_prenom"]." ".$_SESSION["users_nom"]; echo "    /    "."Dernière connexion :  ".date_format($_SESSION["users_derniere_connexion"], 'Y-m-d H:i:s');?>
     <section>
         <div class="row mx-auto">
             <div class="col-12 col-lg-8 shadow mb-3">

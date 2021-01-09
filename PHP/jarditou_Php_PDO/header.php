@@ -1,3 +1,20 @@
+
+
+<?php
+    // Initialiser la session
+    session_start();
+
+    // Vérifiez si l'utilisateur est connecté, sinon redirigez-le vers la page de connexion
+    if(!isset($_SESSION["login"]))
+    {
+        if (!strstr($_SERVER["REQUEST_URI"],"login_form.php") && !strstr($_SERVER["REQUEST_URI"],"register_form.php"))
+        {
+            header("Location: login_form.php");
+            exit(); 
+        }
+    }
+?>
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -41,12 +58,36 @@
                             <li class="nav-item <?php if (strstr($_SERVER["REQUEST_URI"],"contact.php")){echo "active";} ?>">
                                 <a class="nav-link" href="contact.php">Contact</a>
                             </li>
-                            <li class="nav-item <?php if (strstr($_SERVER["REQUEST_URI"],"login_form.php")){echo "active";} ?>">
-                                 <a class="nav-link" href="login_form.php">Se connecter</a>   <!--if(!isset($_SESSION["username"])){ -->
-
+                            <li class="nav-item
+                            <?php if(!isset($_SESSION["login"]))
+                            { 
+                               
+                                if (strstr($_SERVER["REQUEST_URI"],"login_form.php"))
+                                {
+                                     echo "active";
+                                }
+                                ?>">
+                                <?php echo '<a class="nav-link" href="login_form.php">Se connecter</a>';
+                            }
+                            ?>
                             </li>
-                            <li class="nav-item <?php if (strstr($_SERVER["REQUEST_URI"],"register_form.php")){echo "active";} ?>">
-                                <a class="nav-link" href="register_form.php">S'incrire</a>
+                            <li class="nav-item
+                            <?php if(!isset($_SESSION["login"]))
+                            { 
+                                if (strstr($_SERVER["REQUEST_URI"],"register_form.php"))
+                                {
+                                     echo "active";
+                                }
+                                ?>">
+                                <?php echo '<a class="nav-link" href="register_form.php">S\'incrire</a>';
+                            }    
+                            ?>
+                            </li>
+                            <?php if(isset($_SESSION["login"]))
+                            { 
+                                echo'<li class="nav-item"> <a class="nav-link" href="logout.php">Se déconnecter</a>';
+                            }
+                            ?>
                             </li>
                         </ul>
                         <form class="form-inline my-2 my-lg-0">

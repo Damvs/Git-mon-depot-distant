@@ -22,6 +22,7 @@ var_dump($users_mail);
 var_dump($users_motdepasse);
 var_dump($users_login);
 var_dump($users_date_inscription);
+echo "<br>";
 
 //if (isset($_POST['Envoyer']) && $_POST['Envoyer'] == 'Envoyer')
 //{
@@ -46,13 +47,13 @@ var_dump($users_date_inscription);
             $check = $db->prepare('SELECT users_mail FROM users WHERE users_mail=:users_mail');
             // On execute la requête
             $check->execute(array(
-                'users_mail' => $_POST['mail']
+                'users_mail' => $users_mail
                 ))or die(print_r($check->errorInfo())); // On traque l'erreur s'il y en a une
             $num_rows = $check->rowCount();
             //pareil pour login
             $check2 = $db->prepare('SELECT users_login FROM users WHERE users_login=:users_login');
             $check2->execute(array(
-                'users_login' => $_POST['login']
+                'users_login' => $users_login
                 ))or die(print_r($check2->errorInfo())); // On traque l'erreur s'il y en a une
             $num_rows2 = $check2->rowCount();
                 
@@ -95,29 +96,29 @@ var_dump($users_date_inscription);
             }
             if ($num_rows!=0)
             {
-                echo 'Cet email est deja inscrit !';
+                echo 'Cet email est deja inscrit !<br>';
             }
             if ($num_rows2!=0)
             {
-                echo 'Cet identifiant est déjà inscrit !';
+                echo 'Cet identifiant est déjà inscrit !<br>';
             }
         }
         else
         {
-            echo "Les 2 mots de passe sont différents !";
+            echo "Les 2 mots de passe sont différents !<br>";
         }
     }
     if (filter_var($users_mail, FILTER_VALIDATE_EMAIL) == false)
     {
-        echo "mail invalide";
+        echo "mail invalide <br>" ;
     }
 //}
 
 $hash = '$2y$10$yZQuwfAtZ8tBQJJkKTUJTelM2Xq4nD7OPAXkJ9pcFW5FmH5wsK2Fu';
 
 if (password_verify('damv', $hash)) {
-    echo 'Le mot de passe est valide !';
+    echo 'Le mot de passe est valide !<br>';
 } else {
-    echo 'Le mot de passe est invalide.';
+    echo 'Le mot de passe est invalide.<br>';
 }
 ?>

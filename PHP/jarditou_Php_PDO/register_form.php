@@ -1,8 +1,4 @@
 <?php 
-    session_start();
-?>
-
-<?php 
     include("header.php");
 ?>
 
@@ -29,7 +25,7 @@
         </div>
     </section>
     <br>
-    
+
 <?php 
     include("footer.php");
 ?>

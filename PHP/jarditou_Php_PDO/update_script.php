@@ -20,12 +20,12 @@ $requete = $db->prepare("UPDATE produits SET pro_ref=:pro_ref,pro_libelle=:pro_l
 
 // Association des valeurs aux paramètres
 $requete->bindValue(':pro_ref', $pro_ref, PDO::PARAM_STR);
-$requete->bindValue(':pro_libelle', $pro_libelle, PDO::PARAM_INT);
-$requete->bindValue(':pro_description', $pro_description, PDO::PARAM_INT);
+$requete->bindValue(':pro_libelle', $pro_libelle, PDO::PARAM_STR);
+$requete->bindValue(':pro_description', $pro_description, PDO::PARAM_STR);
 $requete->bindValue(':pro_prix', $pro_prix, PDO::PARAM_INT);
 $requete->bindValue(':pro_stock', $pro_stock, PDO::PARAM_INT);
-$requete->bindValue(':pro_couleur', $pro_couleur, PDO::PARAM_INT);
-$requete->bindValue(':pro_bloque', $pro_bloque, PDO::PARAM_INT);
+$requete->bindValue(':pro_couleur', $pro_couleur, PDO::PARAM_STR);
+$requete->bindValue(':pro_bloque', $pro_bloque, PDO::PARAM_STR);
 
 // Exécution de la requête
 $requete->execute();
