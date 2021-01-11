@@ -8,6 +8,8 @@ $users_motdepasse=password_hash(valid_donnees($_POST['mdp']),PASSWORD_DEFAULT);
 $users_confirmmdp=valid_donnees($_POST['confirmmdp']);
 $users_login=valid_donnees($_POST['login']);
 $users_date_inscription= new DateTime();
+$users_derniere_connexion= new DateTime();
+
 
 function valid_donnees($donnees){
     $donnees = trim($donnees);
@@ -63,7 +65,7 @@ echo "<br>";
 
                 try{
                     // Construction de la requête INSERT sans injection SQL
-                    $requete = $db->prepare("INSERT INTO users (users_nom,users_prenom,users_mail,users_login,users_motdepasse,users_date_inscription) VALUES (:users_nom,:users_prenom,:users_mail,:users_login,:users_motdepasse,:users_date_inscription)");
+                    $requete = $db->prepare("INSERT INTO users (users_nom,users_prenom,users_mail,users_login,users_motdepasse,users_date_inscription,users_derniere_connexion) VALUES (:users_nom,:users_prenom,:users_mail,:users_login,:users_motdepasse,:users_date_inscription,:users_derniere_connexion)");
 
                     // Association des valeurs aux paramètres
                     $requete->bindValue(':users_nom', $users_nom);
@@ -72,6 +74,8 @@ echo "<br>";
                     $requete->bindValue(':users_login', $users_login);
                     $requete->bindValue(':users_motdepasse', $users_motdepasse);
                     $requete->bindValue(':users_date_inscription', $users_date_inscription->format('Y-m-d H:i:s'));
+                    $requete->bindValue(':users_derniere_connexion', $users_derniere_connexion->format('Y-m-d H:i:s'));
+
 
                     // Exécution de la requête
                     $requete->execute();
