@@ -2,7 +2,7 @@
     include("header.php");
 ?>
 
-<?php echo "Bienvenue  ".$_SESSION["users_prenom"]." ".$_SESSION["users_nom"]; echo "    /    "."Dernière connexion :  ".date_format($_SESSION["users_derniere_connexion"], 'Y-m-d H:i:s');?>
+<?php echo "Bienvenue  ".$_SESSION["users_prenom"]." ".$_SESSION["users_nom"]; echo "    /    "."Dernière connexion :  ".date_format($_SESSION["users_derniere_connexion"], 'd/m/Y H:i:s');?>
     <section>
         <div class="row mx-auto">
             <div class="col-12 col-lg-8 shadow mb-3">

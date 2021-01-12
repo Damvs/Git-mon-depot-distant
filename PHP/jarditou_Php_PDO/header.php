@@ -13,6 +13,19 @@
             exit(); 
         }
     }
+    if(!isset($_SESSION["role"]))
+    {
+        $_SESSION["role"]="user";
+    }
+
+    if(($_SESSION["role"]!="admin" && strstr($_SERVER["REQUEST_URI"],"details.php"))
+    or($_SESSION["role"]!="admin" && strstr($_SERVER["REQUEST_URI"],"delete_form.php"))
+    or($_SESSION["role"]!="admin" && strstr($_SERVER["REQUEST_URI"],"update_form.php"))
+    or($_SESSION["role"]!="admin" && strstr($_SERVER["REQUEST_URI"],"add_form.php"))
+    )
+    {
+        header("Location: tableau.php");
+    }
 ?>
 
 <!doctype html>

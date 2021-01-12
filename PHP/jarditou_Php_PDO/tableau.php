@@ -24,7 +24,7 @@
                         </tr>
                     </thead>
 <?php
-    
+    echo $_SESSION["role"];
     require "connexion_jarditouDB.php"; // Connexion base
     $requete = "SELECT * FROM produits";
     $result = $db->query($requete);
@@ -32,6 +32,7 @@
     if ($nbLigne > 1) {             
         while ($row = $result->fetch(PDO::FETCH_OBJ)) // Tant qu'il y a des lignes à afficher :
         { 
+            
     ?>
 
                     <tbody class="border border-dark">
@@ -39,7 +40,10 @@
                             <td class="w-25 bg-warning"><img src="<?php echo "src/img/";echo $row->pro_id;echo "."; echo $row->pro_photo ?>" alt="imgproduit" class="img-fluid"></td>
                             <td><?php echo $row->pro_id ?></td>
                             <td><?php echo $row->pro_ref ?></td>
-                            <td class="bg-warning"><a class="text-danger text-uppercase" href="details.php?pro_id=<?php echo $row->pro_id; ?>" title="Modifier"><u><b><?php echo $row->pro_libelle ?></b></u></a></td>
+                            <?php 
+                                if ($_SESSION["role"]=="admin"){echo '<td class="bg-warning"><a class="text-danger text-uppercase" href="details.php?pro_id='.$row->pro_id.'"'.'title="Modifier"><u><b>'.$row->pro_libelle.'</b></u></a></td>';
+                            }else if ($_SESSION["role"]=="user"){echo '<td class="bg-warning">'.$row->pro_libelle.'</td>';} 
+                            ?>
                             <td><?php echo $row->pro_prix."€" ?></td>
                             <td><?php echo $row->pro_stock ?></td>
                             <td><?php echo $row->pro_couleur ?></td>
