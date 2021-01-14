@@ -1,6 +1,6 @@
 <?php
 // Indiquez ici le chemin absolu vers votre fichier "Personnage.class.php"
-require_once "./classes/PersonnageDefault.class.php";
+// require_once "./classes/PersonnageDefault.class.php";
 
 use PHPUnit\Framework\TestCase; // Charge le framework PhpUnit
 
