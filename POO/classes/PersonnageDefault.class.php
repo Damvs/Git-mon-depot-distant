@@ -1,4 +1,5 @@
 <?php
+//require_once "./classes/Personnage.class.php";
 
 class PersonnageDefault //extends Personnage
 {
