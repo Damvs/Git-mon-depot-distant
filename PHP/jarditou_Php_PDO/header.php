@@ -74,10 +74,10 @@
                             <li class="nav-item
                             <?php if(!isset($_SESSION["login"]))
                             { 
-                               
+                            
                                 if (strstr($_SERVER["REQUEST_URI"],"login_form.php"))
                                 {
-                                     echo "active";
+                                    echo "active";
                                 }
                                 ?>">
                                 <?php echo '<a class="nav-link" href="login_form.php">Se connecter</a>';
@@ -89,7 +89,7 @@
                             { 
                                 if (strstr($_SERVER["REQUEST_URI"],"register_form.php"))
                                 {
-                                     echo "active";
+                                    echo "active";
                                 }
                                 ?>">
                                 <?php echo '<a class="nav-link" href="register_form.php">S\'incrire</a>';
