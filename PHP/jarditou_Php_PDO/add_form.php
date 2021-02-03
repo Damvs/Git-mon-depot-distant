@@ -14,12 +14,11 @@
                         <input type="text"  class="form-text form-control" name="reference" id="reference">
                     </div>                    
                     <div class="form-group mt-4">
-                        <p>Categorie : </p>
+                        <label for="categories">Categorie :</label> <br>
                         <input type="text"  class="form-text form-control" name="categories" id="categories">
-                        </select>
                     </div>
                     <div class="form-group mt-4">
-                        <label for="reference">Libellé : </label>
+                        <label for="libelle">Libellé : </label>
                         <input type="text" class="form-text form-control" name="libelle" id="libelle">
                     </div>                    
                     <div class="form-group">

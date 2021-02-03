@@ -38,7 +38,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Jarditou-Accueil</title>
+    <title>Jarditou</title>
 </head>
 
 <body>
@@ -74,10 +74,10 @@
                             <li class="nav-item
                             <?php if(!isset($_SESSION["login"]))
                             { 
-                            
+                               
                                 if (strstr($_SERVER["REQUEST_URI"],"login_form.php"))
                                 {
-                                    echo "active";
+                                     echo "active";
                                 }
                                 ?>">
                                 <?php echo '<a class="nav-link" href="login_form.php">Se connecter</a>';
@@ -89,7 +89,7 @@
                             { 
                                 if (strstr($_SERVER["REQUEST_URI"],"register_form.php"))
                                 {
-                                    echo "active";
+                                     echo "active";
                                 }
                                 ?>">
                                 <?php echo '<a class="nav-link" href="register_form.php">S\'incrire</a>';
