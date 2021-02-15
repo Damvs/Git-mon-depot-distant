@@ -1,0 +1,1 @@
+On peuple en premier les tables sans clés étrangères, ensuite celles avec des clés étrangères qui font référence à des tables déjà existante, et ainsi de suite.
