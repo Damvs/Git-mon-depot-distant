@@ -21,9 +21,11 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `gescom_2020_08_20`
 --
+-- DROP DATABASE IF EXISTS `gescom_afpa`;
 
+CREATE DATABASE IF NOT EXISTS `gescom_afpa`;
 -- --------------------------------------------------------
-
+USE `gescom_afpa`;
 --
 -- Structure de la table `categories`
 --
@@ -132,7 +134,7 @@ INSERT INTO `countries` (`cou_id`, `cou_name`) VALUES
 ('CF', 'République Centrafricaine'),
 ('CG', 'République du Congo'),
 ('CH', 'Suisse'),
-('CI', 'Côte d\'Ivoire'),
+('CI', "Côte d\'Ivoire"),
 ('CK', 'Îles Cook'),
 ('CL', 'Chili'),
 ('CM', 'Cameroun'),
@@ -193,9 +195,9 @@ INSERT INTO `countries` (`cou_id`, `cou_name`) VALUES
 ('IL', 'Israël'),
 ('IM', 'Île de Man'),
 ('IN', 'Inde'),
-('IO', 'Territoire Britannique de l\'Océan Indien'),
+('IO', "Territoire Britannique de l\'Océan Indien"),
 ('IQ', 'Iraq'),
-('IR', 'République Islamique d\'Iran'),
+('IR', "République Islamique d\'Iran"),
 ('IS', 'Islande'),
 ('IT', 'Italie'),
 ('JM', 'Jamaïque'),
@@ -228,7 +230,7 @@ INSERT INTO `countries` (`cou_id`, `cou_name`) VALUES
 ('MD', 'République de Moldova'),
 ('MG', 'Madagascar'),
 ('MH', 'Îles Marshall'),
-('MK', 'L\'ex-République Yougoslave de Macédoine'),
+('MK', "L\'ex-République Yougoslave de Macédoine"),
 ('ML', 'Mali'),
 ('MM', 'Myanmar'),
 ('MN', 'Mongolie'),
@@ -443,7 +445,7 @@ INSERT INTO `customers` (`cus_id`, `cus_lastname`, `cus_firstname`, `cus_address
 (80, 'Martinez', 'Fanny', 'Ap #677-8255 Et Avenue', '14981', 'Rodgau', 'FR', 'tortor@maurissitamet.co.uk', '893683553', '$2y$10$9Jxbv60GE2fDdKXkv2o1We9ToHGjLxwfeuD7nHjXDaCgFo8cnniSW', '2004-12-11 22:25:30', NULL),
 (81, 'Clement', 'Lucas', '694-5524 Sit St.', '92268', 'Branchon', 'FR', 'luctus@vitaeorci.org', '786695746', '$2y$10$9Jxbv60GE2fDdKXkv2o1We9ToHGjLxwfeuD7nHjXDaCgFo8cnniSW', '2002-04-01 19:01:57', NULL),
 (82, 'Marchal', 'Thomas', '200-3480 A Road', '11669', 'Saint-Honor�', 'FR', 'magna.Praesent.interdum@velit.edu', '225003361', '$2y$10$9Jxbv60GE2fDdKXkv2o1We9ToHGjLxwfeuD7nHjXDaCgFo8cnniSW', '2016-01-15 06:06:53', NULL),
-(83, 'Rey', 'Alicia', 'P.O. Box 606, 9603 Lorem Av.', '75377', 'l\'Escaillre', 'FR', 'Mauris.magna@est.co.uk', '413194483', '$2y$10$9Jxbv60GE2fDdKXkv2o1We9ToHGjLxwfeuD7nHjXDaCgFo8cnniSW', '2007-09-23 11:03:28', NULL),
+(83, 'Rey', 'Alicia', 'P.O. Box 606, 9603 Lorem Av.', '75377', "l\'Escaillre", 'FR', 'Mauris.magna@est.co.uk', '413194483', '$2y$10$9Jxbv60GE2fDdKXkv2o1We9ToHGjLxwfeuD7nHjXDaCgFo8cnniSW', '2007-09-23 11:03:28', NULL),
 (84, 'Rey', 'Jeanne', 'P.O. Box 550, 3352 Vitae Avenue', '81795', 'Olmué', 'FR', 'auctor@sem.com', '585086153', '$2y$10$9Jxbv60GE2fDdKXkv2o1We9ToHGjLxwfeuD7nHjXDaCgFo8cnniSW', '2020-09-11 17:17:01', NULL),
 (85, 'Bouvier', 'Léonie', '116-5083 Tortor. Ave', '67639', 'Chieti', 'FR', 'Duis.risus.odio@a.com', '164663188', '$2y$10$9Jxbv60GE2fDdKXkv2o1We9ToHGjLxwfeuD7nHjXDaCgFo8cnniSW', '2006-11-02 11:42:08', NULL),
 (86, 'Paul', 'Marwane', '249-1253 Odio Street', '70886', 'Wimmertingen', 'FR', 'sociis.natoque.penatibus@suscipit.org', '702449373', '$2y$10$9Jxbv60GE2fDdKXkv2o1We9ToHGjLxwfeuD7nHjXDaCgFo8cnniSW', '2014-02-25 04:13:58', NULL),
@@ -471,9 +473,9 @@ INSERT INTO `customers` (`cus_id`, `cus_lastname`, `cus_firstname`, `cus_address
 DROP TABLE IF EXISTS `departments`;
 CREATE TABLE IF NOT EXISTS `departments` (
   `dep_id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `dep_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `dep_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`dep_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `departments`
@@ -488,7 +490,7 @@ INSERT INTO `departments` (`dep_id`, `dep_name`) VALUES
 (6, 'Distribution'),
 (7, 'Achat'),
 (8, 'Direction'),
-(10, 'Direction des Systèmes d\'Information');
+(10, "Direction des Systèmes d\'Information");
 
 -- --------------------------------------------------------
 
@@ -557,7 +559,7 @@ INSERT INTO `employees` (`emp_id`, `emp_superior_id`, `emp_pos_id`, `emp_lastnam
 (29, 14, 13, 'KELSIE', 'Kirsten', '5586 Mus. Ave', 'C2W 9', 'Kumluca', 'pharetra.Quisque@Suspendisse.net', '0102030405', '18473.00', '2000-03-30', 'M', 4, 3, 6),
 (30, 17, 19, 'RHONDA', 'Bradley', '7331 Pede. Rue', '01971', 'Pishin Valley', 'Nunc.lectus@leoMorbi.co.uk', '0102030405', '18473.00', '2013-10-18', 'M', 0, 1, 5),
 (31, 34, 12, 'ASPEN', 'Casey', '7026 Orci Route', '13075', 'Impe', 'enim@ornareelitelit.co.uk', '0102030405', '30000.00', '2018-03-01', 'F', 4, 3, 6),
-(32, 17, 8, 'KELSIE', 'Nadia', '723 Orci Rd.', '9989', 'Isola del Gran Sasso d\'Italia', 'amet.risus.Donec@bibendumDonec.ca', '0102030405', '18473.00', '2003-10-17', 'F', 2, 1, 2),
+(32, 17, 8, 'KELSIE', 'Nadia', '723 Orci Rd.', '9989', "Isola del Gran Sasso d\'Italia", 'amet.risus.Donec@bibendumDonec.ca', '0102030405', '18473.00', '2003-10-17', 'F', 2, 1, 2),
 (33, 17, 18, 'DUMOULIN', 'Isabelle', 'Appartement 235-4026 Maecenas Chemin', '77-30', 'Glovertown', 'amet@habitant.edu', '0102030405', '51802.00', '2009-04-07', 'F', 4, 1, 5),
 (34, 14, 11, 'DRAKE', 'Ray', '902-1314 Ut Route', '93131', 'Sorbo Serpico', 'sapien.cursus@Donec.com', '0102030405', '39576.00', '2019-12-10', 'M', 1, 3, 6),
 (35, 17, 11, 'RICHARD', 'Destiny', '5004 Tellus Ave', '39013', 'Ambon', 'consectetuer@laciniaSedcongue.com', '0102030405', '39576.00', '2009-06-30', 'F', 2, 1, 6),
@@ -585,7 +587,7 @@ INSERT INTO `employees` (`emp_id`, `emp_superior_id`, `emp_pos_id`, `emp_lastnam
 (57, 17, 14, 'MALIK', 'Keiko', 'Appartement 633-956 Quis, Rd.', '45000', 'Orléans', 'pede.ultrices.a@lacusEtiam.org', '0102030405', '20450.00', '2003-03-21', 'F', 2, 2, 6),
 (58, 17, 6, 'HECTOR', 'Macaulay', '2095 In Ave', '52-91', 'Emarèse', 'sem.Nulla.interdum@lobortis.ca', '0102030405', '18473.00', '2007-12-26', 'M', 3, 2, 6),
 (59, 4, 2, 'HANNAH', 'Amity', '537-1971 Vestibulum Rd.', '8203 ', 'Palagano', 'fermentum@quisturpisvitae.co.uk', '0102030405', '39576.00', '2013-08-01', 'M', 2, 2, 6),
-(60, 17, 8, 'HEDY', 'Katell', 'CP 850, 1578 In Rue', '9661', 'Connah\'s Quay', 'lorem.sit.amet@pellentesque.co.uk', '0102030405', '18473.00', '2010-07-26', 'M', 0, 2, 2),
+(60, 17, 8, 'HEDY', 'Katell', 'CP 850, 1578 In Rue', '9661', "Connah\'s Quay", 'lorem.sit.amet@pellentesque.co.uk', '0102030405', '18473.00', '2010-07-26', 'M', 0, 2, 2),
 (61, 17, 8, 'BELL', 'Oleg', 'Appartement 679-9483 Fringilla Route', 'B4 6E', 'Parndorf', 'Aenean.massa.Integer@dui.org', '0102030405', '18473.00', '2012-03-25', 'M', 2, 2, 2),
 (62, 17, 13, 'PAULA', 'Tasha', 'Appartement 193-7862 Mollis. Rue', '24446', 'McCallum', 'adipiscing.lobortis.risus@semmolestiesodales.com', '0102030405', '18473.00', '2018-02-03', 'F', 1, 2, 6),
 (63, 17, 12, 'POPOV', 'Yuri', '6111 Risus. Ave', '60214', 'Compiègne', 'yuri@gmail.com', '0102030405', '30000.00', '2012-08-06', 'M', 5, 1, 6),
@@ -923,7 +925,7 @@ INSERT INTO `posts` (`pos_id`, `pos_libelle`) VALUES
 (23, 'Cariste'),
 (24, 'Préparateur(/trice) de commandes'),
 (25, 'Formateur(/trice)'),
-(26, 'Directeur(/trice) des systèmes d\'information'),
+(26, "Directeur(/trice) des systèmes d\'information"),
 (27, 'Développeur(/peuse)'),
 (28, 'Chef(/fe) de projet informatique'),
 (29, 'Community manager'),
@@ -968,7 +970,7 @@ CREATE TABLE IF NOT EXISTS `products` (
 
 INSERT INTO `products` (`pro_id`, `pro_cat_id`, `pro_price`, `pro_ref`, `pro_ean`, `pro_stock`, `pro_stock_alert`, `pro_color`, `pro_name`, `pro_desc`, `pro_publish`, `pro_sup_id`, `pro_add_date`, `pro_update_date`, `pro_picture`) VALUES
 (7, 27, '110.00', 'barb001', NULL, 2, 5, 'Brun', 'Aramis ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porttitor sit amet ipsum sit amet dapibus. Cras suscipit neque ac magna sagittis lobortis. Duis venenatis enim ac nisl luctus, a scelerisque velit porttitor. Integer nec massa quis urna mollis consectetur et et nisl. Nullam eget nunc vitae nisl convallis faucibus. Vestibulum dapibus, metus nec molestie lobortis, nunc sem mollis tortor, et auctor dolor nunc at nisi. Pellentesque sit amet turpis nisi. ', 0, 4, '2018-04-18 00:00:00', '2018-11-14 00:00:00', 'jpg'),
-(8, 27, '249.99', 'barb002', NULL, 0, 5, 'Noir', 'Athos', 'Cu\'rabitur pellentesque posuere luctus. Sed et risus vel quam pharetra pretium non quis odio. Praesent varius risus vel orci ultrices tincidunt.', 0, 4, '2016-06-14 00:00:00', NULL, 'jpg'),
+(8, 27, '249.99', 'barb002', NULL, 0, 5, 'Noir', 'Athos', "Cu\'rabitur pellentesque posuere luctus. Sed et risus vel quam pharetra pretium non quis odio. Praesent varius risus vel orci ultrices tincidunt.", 0, 4, '2016-06-14 00:00:00', NULL, 'jpg'),
 (10, 2, '14.99', 'SEC-B', NULL, 16, 5, 'Rouge', 'Red', 'Phasellus ac gravida lorem. Aliquam sed aliquam nisl. Etiam non ornare sapien. Aenean ut tellus non risus varius bibendum quis vel ligula.', 0, 3, '2018-08-05 00:00:00', NULL, 'jpg'),
 (11, 27, '135.90', 'barb003', NULL, 10, 5, 'Chrome', 'Clatronic', 'Fusce rutrum odio sem, quis finibus nisl finibus a. Praesent dictum ex in lectus porta, vitae varius lacus eleifend. Sed sed lacinia mi, sed egestas odio. Integer a congue lectus.', 0, 4, '2017-10-18 00:00:00', '2018-08-23 00:00:00', 'jpg'),
 (12, 27, '100.00', 'barb004', NULL, 5, 5, 'Noir', 'Camping', 'Phasellus auctor mattis justo, in semper urna congue eget. Nunc sit amet nunc sed dui fringilla scelerisque a eget sem. Aenean cursus eros vehicula arcu blandit, sit amet faucibus leo finibus. Duis pharetra felis eget viverra tempor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas', 1, 4, '2018-08-20 00:00:00', NULL, 'jpg'),
@@ -981,7 +983,7 @@ INSERT INTO `products` (`pro_id`, `pro_cat_id`, `pro_price`, `pro_ref`, `pro_ean
 (19, 2, '14.90', 'scm559', NULL, 4, 5, 'Bleu', 'Scie couteau', 'raesent ante felis, iaculis vitae lectus sed, luctus laoreet metus. Aenean mattis egestas eleifend. Morbi dictum erat ut lorem porta, a volutpat nibh ultrices. Nunc ut tortor ac velit fringilla dictum at non nulla.', 0, 2, '2018-04-13 00:00:00', NULL, 'png'),
 (20, 2, '31.19', 'h0662', NULL, 0, 5, 'Noir', 'Hache H062', 'Cras nec dapibus erat. Cras bibendum auctor dui quis tristique.', 0, 2, '2018-08-12 00:00:00', NULL, 'png'),
 (21, 11, '599.99', 'DB0703', NULL, 4, 5, 'Bleue', 'Titan', 'Etiam eu sem ligula. Donec aliquet velit a condimentum sagittis. Nullam ipsum augue, porta non vestibulum cursus, eleifend tempor erat. Proin et turpis molestie augue mollis laoreet. Nulla lorem tellus, pellentesque nec hendrerit vehicula, consectetur non nisl. Maecenas eget accumsan lectus. Vivamus eleifend lorem scelerisque augue rutrum laoreet. ', 0, 3, '1999-08-26 00:00:00', NULL, 'png'),
-(22, 11, '499.99', 'DB0755', NULL, 0, 5, 'Bleue', 'Attila', 'Là où passe Attila, l\'herbe ne repousse pas.', 0, 3, '2018-05-16 00:00:00', NULL, 'png'),
+(22, 11, '499.99', 'DB0755', NULL, 0, 5, 'Bleue', 'Attila', "Là où passe Attila, l\'herbe ne repousse pas.", 0, 3, '2018-05-16 00:00:00', NULL, 'png'),
 (23, 28, '12.00', 'LAM121', NULL, 0, 5, 'Rouge', 'Aquitaine', 'Integer aliquet accumsan eleifend. Pellentesque mauris tortor, ultricies a pulvinar ut, fringilla ac mi. Sed consequat, nibh at tempus porttitor, tellus nunc dictum nulla, sed finibus felis augue sed libero. Donec augue mi, mattis et orci ac, mollis feugiat elit.', 0, 2, '2018-03-17 00:00:00', NULL, 'jpg'),
 (24, 28, '9.98', 'LAM233', NULL, 500, 5, 'Brun', 'Brown', 'Morbi porta ultricies nibh vel varius. Vestibulum nec rutrum ex, vel posuere nisi. Ut scelerisque sit amet ligula sed imperdiet. Morbi lacinia sapien in elementum iaculis. Vivamus a ultrices enim. ', 0, 2, '2018-03-17 00:00:00', NULL, 'jpg'),
 (25, 25, '100.00', 'PRS-01C', NULL, 5, 5, 'Brun', 'Biarritz', 'Quisque fermentum, dui eu elementum sagittis, risus lorem placerat ipsum, vitae venenatis tellus sapien id nibh. Suspendisse et aliquet tellus, in suscipit magna.', 0, 2, '2018-08-19 00:00:00', NULL, 'jpg'),
