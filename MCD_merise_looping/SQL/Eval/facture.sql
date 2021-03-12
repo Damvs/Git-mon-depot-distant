@@ -16,8 +16,19 @@ BEGIN
     -- SELECT sho_name, sho_address, sho_zipcode, sho_city 
     -- FROM shops
     -- WHERE sho_id = 1;
+    
 END $$
 
 DELIMITER ;
 
 CALL facture(5)
+
+-- DELETE p
+-- FROM products p
+-- INNER JOIN `categories` c ON c.cat_id = p.pro_cat_id
+-- WHERE NOT EXISTS(
+--         SELECT od.ode_pro_id
+--         FROM orders_details od
+--         WHERE od.ode_pro_id = p.pro_id
+--     )
+--   AND c.cat_name LIKE "Tondeuses électriques";
