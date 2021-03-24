@@ -1,5 +1,7 @@
-START TRANSACTION;
-INSERT INTO `posts` (`pos_libelle`) VALUES ('retraite');
+START TRANSACTION
+    ;
+INSERT INTO `posts`(`pos_libelle`)
+VALUES('retraite');
 SET
     @posid =(
     SELECT
@@ -9,7 +11,15 @@ SET
     WHERE
         emp_lastname LIKE 'HANNAH' AND emp_firstname LIKE "Amity"
 );
-SET @retraite =(SELECT pos_id FROM `posts` WHERE `pos_libelle` LIKE 'retraite');
+SET
+    @retraite =(
+    SELECT
+        pos_id
+    FROM
+        `posts`
+    WHERE
+        `pos_libelle` LIKE 'retraite'
+);
 SET
     @empid =(
     SELECT
@@ -26,21 +36,19 @@ SET
         WHERE
             emp_lastname LIKE 'HANNAH' AND emp_firstname LIKE "Amity"
     )
-
-
 ORDER BY
     `emp_enter_date` ASC
 LIMIT 1
 );
-SET @empshoid =(
-        SELECT
-            emp_sho_id
-        FROM
-            employees
-        WHERE
-            emp_id = @empid);
-
-
+SET
+    @empshoid =(
+    SELECT
+        emp_sho_id
+    FROM
+        employees
+    WHERE
+        emp_id = @empid
+);
 UPDATE
     employees
 SET
@@ -48,24 +56,27 @@ SET
     emp_salary = emp_salary * 1.05
 WHERE
     emp_id = @empid;
-
-
-
-
-    UPDATE
+UPDATE
     employees
 SET
     emp_superior_id = @empid
 WHERE
-    emp_id != @empid and emp_sho_id=@empshoid;
-
-    
-
-
-UPDATE employees SET emp_pos_id=(SELECT pos_id FROM posts WHERE pos_libelle LIKE 'retraite')  
-    WHERE  emp_lastname LIKE 'HANNAH' AND emp_firstname LIKE "Amity";
-    COMMIT;
-
+    emp_id != @empid AND emp_sho_id = @empshoid;
+UPDATE
+    employees
+SET
+    emp_pos_id =(
+    SELECT
+        pos_id
+    FROM
+        posts
+    WHERE
+        pos_libelle LIKE 'retraite'
+)
+WHERE
+    emp_lastname LIKE 'HANNAH' AND emp_firstname LIKE "Amity";
+COMMIT
+    ;
 -- INSERT INTO posts (pos_libelle) VALUES ("Retraité")
 
 -- START TRANSACTION;
